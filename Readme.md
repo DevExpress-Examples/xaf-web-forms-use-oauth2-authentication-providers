@@ -3,7 +3,7 @@
 
 This example demonstrates the use of OAuth2 authentication in a web application. Users can sign in to the application via Google, Facebook or  Microsoft authentication providers.<br><br><img src="https://raw.githubusercontent.com/DevExpress-Examples/how-to-use-google-facebook-and-microsoft-accounts-in-aspnet-xaf-applications-oauth2-demo-t535280/17.1.3+/media/f34385f9-6797-11e7-80c0-00155d624807.png"><br>You can try this demo "as is" to overview its capabilities, and then try the demonstrated functionality in your own XAF applications according to the instructions below.<br><br><br><strong>How to Run this Demo</strong><br><br>Before running this demo, register developer accounts at the services you are going to use
 
-* <a href="https://console.developers.google.com/">https://console.developers.google.com/</a>
+* <a href="https://console.developers.google.com/">https://console.developers.google.com/</a> (Make sure that 'Google+ API' is enabled. Read more here: <a href="https://docs.microsoft.com/en-us/aspnet/mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on">Creating a Google app for OAuth 2 and connecting the app to the project</a>)
 * <a href="https://developers.facebook.com/">https://developers.facebook.com/</a>
 * <a href="https://apps.dev.microsoft.com/">https://apps.dev.microsoft.com/</a> <br><br>Open the <em>Web.config</em> file and specify your own client IDs and client secrets for each provider.<br><br>
 
