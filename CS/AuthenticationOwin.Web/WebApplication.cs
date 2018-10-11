@@ -4,10 +4,15 @@ using DevExpress.ExpressApp.Web;
 using DevExpress.ExpressApp.Xpo;
 using AuthenticationOwin.Web.Security;
 using AuthenticationOwin.Module.Web.Controllers;
+using DevExpress.ExpressApp.Security;
+using DevExpress.Persistent.BaseImpl.PermissionPolicy;
+using AuthenticationOwin.Module.BusinessObjects;
 
-namespace AuthenticationOwin.Web {
+namespace AuthenticationOwin.Web
+{
     // For more typical usage scenarios, be sure to check out https://documentation.devexpress.com/eXpressAppFramework/DevExpressExpressAppWebWebApplicationMembersTopicAll.aspx
-    public partial class AuthenticationOwinAspNetApplication : WebApplication {
+    public partial class AuthenticationOwinAspNetApplication : WebApplication
+    {
 
         private DevExpress.ExpressApp.SystemModule.SystemModule module1;
         private DevExpress.ExpressApp.Web.SystemModule.SystemAspNetModule module2;
@@ -15,12 +20,12 @@ namespace AuthenticationOwin.Web {
         private AuthenticationOwin.Module.Web.AuthenticationOwinAspNetModule module4;
         private DevExpress.ExpressApp.Security.SecurityModule securityModule1;
         private AuthenticationOwin.Module.Web.Security.CustomSecurityStrategyComplex securityStrategyComplex1;
-        private DevExpress.ExpressApp.Security.AuthenticationBase AuthenticationBase;
         private DevExpress.ExpressApp.Validation.ValidationModule validationModule;
         private DevExpress.ExpressApp.Validation.Web.ValidationAspNetModule validationAspNetModule;
 
         #region Default XAF configuration options (https://www.devexpress.com/kb=T501418)
-        static AuthenticationOwinAspNetApplication() {
+        static AuthenticationOwinAspNetApplication()
+        {
             EnableMultipleBrowserTabsSupport = true;
             DevExpress.ExpressApp.Web.Editors.ASPx.ASPxGridListEditor.AllowFilterControlHierarchy = true;
             DevExpress.ExpressApp.Web.Editors.ASPx.ASPxGridListEditor.MaxFilterControlHierarchyDepth = 3;
@@ -29,57 +34,76 @@ namespace AuthenticationOwin.Web {
             DevExpress.Persistent.Base.PasswordCryptographer.EnableRfc2898 = true;
             DevExpress.Persistent.Base.PasswordCryptographer.SupportLegacySha512 = false;
         }
-        private void InitializeDefaults() {
+        private void InitializeDefaults()
+        {
             LinkNewObjectToParentImmediately = false;
             OptimizedControllersCreation = true;
         }
         #endregion
-        public AuthenticationOwinAspNetApplication() {
+        public AuthenticationOwinAspNetApplication()
+        {
             InitializeComponent();
             InitializeDefaults();
+            AuthenticationMixed authenticationMixed = new AuthenticationMixed();
+            authenticationMixed.LogonParametersType = typeof(AuthenticationStandardLogonParameters);
+            authenticationMixed.AuthenticationProviders.Add(typeof(AuthenticationStandardProvider).Name, new AuthenticationStandardProvider(typeof(OAuthUser)));
+            OAuthProvider authProvider = new OAuthProvider(typeof(OAuthUser), securityStrategyComplex1);
+            authProvider.CreateUserAutomatically = true;
+            authenticationMixed.AuthenticationProviders.Add(typeof(OAuthProvider).Name, authProvider);
+            securityStrategyComplex1.Authentication = authenticationMixed;
         }
-        protected override void CreateDefaultObjectSpaceProvider(CreateCustomObjectSpaceProviderEventArgs args) {
+        protected override void CreateDefaultObjectSpaceProvider(CreateCustomObjectSpaceProviderEventArgs args)
+        {
             args.ObjectSpaceProvider = new XPObjectSpaceProvider(GetDataStoreProvider(args.ConnectionString, args.Connection), true);
             args.ObjectSpaceProviders.Add(new NonPersistentObjectSpaceProvider(TypesInfo, null));
         }
-        private IXpoDataStoreProvider GetDataStoreProvider(string connectionString, System.Data.IDbConnection connection) {
+        private IXpoDataStoreProvider GetDataStoreProvider(string connectionString, System.Data.IDbConnection connection)
+        {
             System.Web.HttpApplicationState application = (System.Web.HttpContext.Current != null) ? System.Web.HttpContext.Current.Application : null;
             IXpoDataStoreProvider dataStoreProvider = null;
-            if(application != null && application["DataStoreProvider"] != null) {
+            if (application != null && application["DataStoreProvider"] != null)
+            {
                 dataStoreProvider = application["DataStoreProvider"] as IXpoDataStoreProvider;
             }
-            else {
+            else
+            {
                 dataStoreProvider = XPObjectSpaceProvider.GetDataStoreProvider(connectionString, connection, true);
-                if(application != null) {
+                if (application != null)
+                {
                     application["DataStoreProvider"] = dataStoreProvider;
                 }
             }
             return dataStoreProvider;
         }
-        private void AuthenticationOwinAspNetApplication_DatabaseVersionMismatch(object sender, DevExpress.ExpressApp.DatabaseVersionMismatchEventArgs e) {
+        private void AuthenticationOwinAspNetApplication_DatabaseVersionMismatch(object sender, DevExpress.ExpressApp.DatabaseVersionMismatchEventArgs e)
+        {
 #if EASYTEST
             e.Updater.Update();
             e.Handled = true;
 #else
-            if(System.Diagnostics.Debugger.IsAttached) {
+            if (System.Diagnostics.Debugger.IsAttached)
+            {
                 e.Updater.Update();
                 e.Handled = true;
             }
-            else {
+            else
+            {
                 string message = "The application cannot connect to the specified database, " +
                     "because the database doesn't exist, its version is older " +
                     "than that of the application or its schema does not match " +
                     "the ORM data model structure. To avoid this error, use one " +
                     "of the solutions from the https://www.devexpress.com/kb=T367835 KB Article.";
 
-                if(e.CompatibilityError != null && e.CompatibilityError.Exception != null) {
+                if (e.CompatibilityError != null && e.CompatibilityError.Exception != null)
+                {
                     message += "\r\n\r\nInner exception: " + e.CompatibilityError.Exception.Message;
                 }
                 throw new InvalidOperationException(message);
             }
 #endif
         }
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             this.module1 = new DevExpress.ExpressApp.SystemModule.SystemModule();
             this.module2 = new DevExpress.ExpressApp.Web.SystemModule.SystemAspNetModule();
             this.module3 = new AuthenticationOwin.Module.AuthenticationOwinModule();
@@ -88,7 +112,6 @@ namespace AuthenticationOwin.Web {
             this.securityStrategyComplex1 = new Module.Web.Security.CustomSecurityStrategyComplex();
             this.securityStrategyComplex1.SupportNavigationPermissionsForTypes = false;
             this.securityStrategyComplex1.NewUserRoleName = "Default";
-            this.AuthenticationBase = new AuthenticationStandartWithOAuth();
 
             this.validationModule = new DevExpress.ExpressApp.Validation.ValidationModule();
             this.validationAspNetModule = new DevExpress.ExpressApp.Validation.Web.ValidationAspNetModule();
@@ -96,18 +119,12 @@ namespace AuthenticationOwin.Web {
             // 
             // securityStrategyComplex1
             // 
-            this.securityStrategyComplex1.Authentication = this.AuthenticationBase;
             this.securityStrategyComplex1.RoleType = typeof(DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyRole);
             this.securityStrategyComplex1.UserType = typeof(Module.BusinessObjects.OAuthUser);
             // 
             // securityModule1
             // 
             this.securityModule1.UserType = typeof(Module.BusinessObjects.OAuthUser);
-            // 
-            // AuthenticationStandard1
-            // 
-            ((AuthenticationStandartWithOAuth)AuthenticationBase).LogonParametersType = typeof(DevExpress.ExpressApp.Security.AuthenticationStandardLogonParameters);
-            ((AuthenticationStandartWithOAuth)AuthenticationBase).CreateUserAutomatically = true;
 
             // 
             // AuthenticationOwinAspNetApplication

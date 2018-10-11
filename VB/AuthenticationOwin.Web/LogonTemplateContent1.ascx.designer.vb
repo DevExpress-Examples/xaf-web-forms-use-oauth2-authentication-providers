@@ -7,127 +7,129 @@
 ' </auto-generated>
 '------------------------------------------------------------------------------
 
+
+Imports Microsoft.VisualBasic
+Imports System
 Namespace AuthenticationOwin.Web
 
 
-    Partial Public Class LogonTemplateContent1
+	Partial Public Class LogonTemplateContent1
 
-        ''' <summary>
-        ''' UPPopupWindowControl control.
-        ''' </summary>
-        ''' <remarks>
-        ''' Auto-generated field.
-        ''' To modify move field declaration from designer file to code-behind file.
-        ''' </remarks>
-        Protected UPPopupWindowControl As Global.DevExpress.ExpressApp.Web.Templates.XafUpdatePanel
+		''' <summary>
+		''' UPPopupWindowControl control.
+		''' </summary>
+		''' <remarks>
+		''' Auto-generated field.
+		''' To modify move field declaration from designer file to code-behind file.
+		''' </remarks>
+		Protected UPPopupWindowControl As Global.DevExpress.ExpressApp.Web.Templates.XafUpdatePanel
 
-        ''' <summary>
-        ''' PopupWindowControl control.
-        ''' </summary>
-        ''' <remarks>
-        ''' Auto-generated field.
-        ''' To modify move field declaration from designer file to code-behind file.
-        ''' </remarks>
-        Protected PopupWindowControl As Global.DevExpress.ExpressApp.Web.Controls.XafPopupWindowControl
+		''' <summary>
+		''' PopupWindowControl control.
+		''' </summary>
+		''' <remarks>
+		''' Auto-generated field.
+		''' To modify move field declaration from designer file to code-behind file.
+		''' </remarks>
+		Protected PopupWindowControl As Global.DevExpress.ExpressApp.Web.Controls.XafPopupWindowControl
 
-        ''' <summary>
-        ''' UPHeader control.
-        ''' </summary>
-        ''' <remarks>
-        ''' Auto-generated field.
-        ''' To modify move field declaration from designer file to code-behind file.
-        ''' </remarks>
-        Protected UPHeader As Global.DevExpress.ExpressApp.Web.Templates.XafUpdatePanel
+		''' <summary>
+		''' UPHeader control.
+		''' </summary>
+		''' <remarks>
+		''' Auto-generated field.
+		''' To modify move field declaration from designer file to code-behind file.
+		''' </remarks>
+		Protected UPHeader As Global.DevExpress.ExpressApp.Web.Templates.XafUpdatePanel
 
-        ''' <summary>
-        ''' LogoLink control.
-        ''' </summary>
-        ''' <remarks>
-        ''' Auto-generated field.
-        ''' To modify move field declaration from designer file to code-behind file.
-        ''' </remarks>
-        Protected LogoLink As Global.System.Web.UI.WebControls.HyperLink
+		''' <summary>
+		''' LogoLink control.
+		''' </summary>
+		''' <remarks>
+		''' Auto-generated field.
+		''' To modify move field declaration from designer file to code-behind file.
+		''' </remarks>
+		Protected LogoLink As Global.System.Web.UI.WebControls.HyperLink
 
-        ''' <summary>
-        ''' TIC control.
-        ''' </summary>
-        ''' <remarks>
-        ''' Auto-generated field.
-        ''' To modify move field declaration from designer file to code-behind file.
-        ''' </remarks>
-        Protected TIC As Global.DevExpress.ExpressApp.Web.Controls.ThemedImageControl
+		''' <summary>
+		''' TIC control.
+		''' </summary>
+		''' <remarks>
+		''' Auto-generated field.
+		''' To modify move field declaration from designer file to code-behind file.
+		''' </remarks>
+		Protected TIC As Global.DevExpress.ExpressApp.Web.Controls.ThemedImageControl
 
-        ''' <summary>
-        ''' UPEI control.
-        ''' </summary>
-        ''' <remarks>
-        ''' Auto-generated field.
-        ''' To modify move field declaration from designer file to code-behind file.
-        ''' </remarks>
-        Protected UPEI As Global.DevExpress.ExpressApp.Web.Templates.XafUpdatePanel
+		''' <summary>
+		''' UPEI control.
+		''' </summary>
+		''' <remarks>
+		''' Auto-generated field.
+		''' To modify move field declaration from designer file to code-behind file.
+		''' </remarks>
+		Protected UPEI As Global.DevExpress.ExpressApp.Web.Templates.XafUpdatePanel
 
-        ''' <summary>
-        ''' ErrorInfo control.
-        ''' </summary>
-        ''' <remarks>
-        ''' Auto-generated field.
-        ''' To modify move field declaration from designer file to code-behind file.
-        ''' </remarks>
-        Protected ErrorInfo As Global.DevExpress.ExpressApp.Web.Templates.Controls.ErrorInfoControl
+		''' <summary>
+		''' ErrorInfo control.
+		''' </summary>
+		''' <remarks>
+		''' Auto-generated field.
+		''' To modify move field declaration from designer file to code-behind file.
+		''' </remarks>
+		Protected ErrorInfo As Global.DevExpress.ExpressApp.Web.Templates.Controls.ErrorInfoControl
 
-        ''' <summary>
-        ''' UPVSC control.
-        ''' </summary>
-        ''' <remarks>
-        ''' Auto-generated field.
-        ''' To modify move field declaration from designer file to code-behind file.
-        ''' </remarks>
-        Protected UPVSC As Global.DevExpress.ExpressApp.Web.Templates.XafUpdatePanel
+		''' <summary>
+		''' UPVSC control.
+		''' </summary>
+		''' <remarks>
+		''' Auto-generated field.
+		''' To modify move field declaration from designer file to code-behind file.
+		''' </remarks>
+		Protected UPVSC As Global.DevExpress.ExpressApp.Web.Templates.XafUpdatePanel
 
-        ''' <summary>
-        ''' viewSiteControl control.
-        ''' </summary>
-        ''' <remarks>
-        ''' Auto-generated field.
-        ''' To modify move field declaration from designer file to code-behind file.
-        ''' </remarks>
+		''' <summary>
+		''' viewSiteControl control.
+		''' </summary>
+		''' <remarks>
+		''' Auto-generated field.
+		''' To modify move field declaration from designer file to code-behind file.
+		''' </remarks>
+		Protected viewSiteControl_Renamed As Global.DevExpress.ExpressApp.Web.Controls.ViewSiteControl
 
-        Protected viewSiteControl_Renamed As Global.DevExpress.ExpressApp.Web.Controls.ViewSiteControl
+		''' <summary>
+		''' UPPopupActions control.
+		''' </summary>
+		''' <remarks>
+		''' Auto-generated field.
+		''' To modify move field declaration from designer file to code-behind file.
+		''' </remarks>
+		Protected UPPopupActions As Global.DevExpress.ExpressApp.Web.Templates.XafUpdatePanel
 
-        ''' <summary>
-        ''' UPPopupActions control.
-        ''' </summary>
-        ''' <remarks>
-        ''' Auto-generated field.
-        ''' To modify move field declaration from designer file to code-behind file.
-        ''' </remarks>
-        Protected UPPopupActions As Global.DevExpress.ExpressApp.Web.Templates.XafUpdatePanel
+		''' <summary>
+		''' PopupActions control.
+		''' </summary>
+		''' <remarks>
+		''' Auto-generated field.
+		''' To modify move field declaration from designer file to code-behind file.
+		''' </remarks>
+		Protected PopupActions As Global.DevExpress.ExpressApp.Web.Templates.ActionContainers.ActionContainerHolder
 
-        ''' <summary>
-        ''' PopupActions control.
-        ''' </summary>
-        ''' <remarks>
-        ''' Auto-generated field.
-        ''' To modify move field declaration from designer file to code-behind file.
-        ''' </remarks>
-        Protected PopupActions As Global.DevExpress.ExpressApp.Web.Templates.ActionContainers.ActionContainerHolder
+		''' <summary>
+		''' XafUpdatePanelOAuth control.
+		''' </summary>
+		''' <remarks>
+		''' Auto-generated field.
+		''' To modify move field declaration from designer file to code-behind file.
+		''' </remarks>
+		Protected XafUpdatePanelOAuth As Global.DevExpress.ExpressApp.Web.Templates.XafUpdatePanel
 
-        ''' <summary>
-        ''' XafUpdatePanelOAuth control.
-        ''' </summary>
-        ''' <remarks>
-        ''' Auto-generated field.
-        ''' To modify move field declaration from designer file to code-behind file.
-        ''' </remarks>
-        Protected XafUpdatePanelOAuth As Global.DevExpress.ExpressApp.Web.Templates.XafUpdatePanel
-
-        ''' <summary>
-        ''' OAuthActions control.
-        ''' </summary>
-        ''' <remarks>
-        ''' Auto-generated field.
-        ''' To modify move field declaration from designer file to code-behind file.
-        ''' </remarks>
-        Protected OAuthActions As Global.DevExpress.ExpressApp.Web.Templates.ActionContainers.ActionContainerHolder
-    End Class
+		''' <summary>
+		''' OAuthActions control.
+		''' </summary>
+		''' <remarks>
+		''' Auto-generated field.
+		''' To modify move field declaration from designer file to code-behind file.
+		''' </remarks>
+		Protected OAuthActions As Global.DevExpress.ExpressApp.Web.Templates.ActionContainers.ActionContainerHolder
+	End Class
 End Namespace
