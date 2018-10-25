@@ -1,11 +1,11 @@
 ﻿<%@ Control Language="C#" CodeBehind="LogonTemplateContent1.ascx.cs" Inherits="AuthenticationOwin.Web.LogonTemplateContent1" %>
-<%@ Register Assembly="DevExpress.ExpressApp.Web.v18.2, Version=18.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.ExpressApp.Web.Templates.ActionContainers"
+<%@ Register Assembly="DevExpress.ExpressApp.Web.v18.2, Version=18.2.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.ExpressApp.Web.Templates.ActionContainers"
     TagPrefix="xaf" %>
-<%@ Register Assembly="DevExpress.ExpressApp.Web.v18.2, Version=18.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.ExpressApp.Web.Templates.Controls"
+<%@ Register Assembly="DevExpress.ExpressApp.Web.v18.2, Version=18.2.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.ExpressApp.Web.Templates.Controls"
     TagPrefix="xaf" %>
-<%@ Register Assembly="DevExpress.ExpressApp.Web.v18.2, Version=18.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.ExpressApp.Web.Controls"
+<%@ Register Assembly="DevExpress.ExpressApp.Web.v18.2, Version=18.2.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.ExpressApp.Web.Controls"
     TagPrefix="xaf" %>
-<%@ Register Assembly="DevExpress.ExpressApp.Web.v18.2, Version=18.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.ExpressApp.Web.Templates"
+<%@ Register Assembly="DevExpress.ExpressApp.Web.v18.2, Version=18.2.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.ExpressApp.Web.Templates"
     TagPrefix="xaf" %>
 <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
 <div class="LogonTemplate">
