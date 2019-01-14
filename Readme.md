@@ -100,3 +100,5 @@ WebApplication.Instance.Settings.LogonTemplateContentPath = "LogonTemplateConten
 <br/>
 
 
+Important note:
+The main goal of this example is to show how XAF can work with OAuth2 (how XAF can get a user's email from a service that uses this framework). The API of services (Google, Facebook, and Microsoft) that are used in this example often changes and we can't always keep this example up to date with them. If you face difficulties with the authenticate process in this example, refer to these services documentation and make sure that all settings are correct. Feel free to create merge requests to this example if needed.
