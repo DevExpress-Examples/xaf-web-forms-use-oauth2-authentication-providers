@@ -100,6 +100,8 @@ WebApplication.Instance.Settings.LogonTemplateContentPath = "LogonTemplateConten
 <br/>
 
 
-<strong>Important note</strong><br>
+<strong>Important notes</strong><br>
 This example shows how XAF can work with OAuth2, in particular, how XAF can get a user's email from a service that uses this framework, and create (or authenticate) a user based on it ([the AuthenticationStandartWithOAuth.Authenticate method](./CS/AuthenticationOwin.Web/Security/AuthenticationStandartWithOAuth.cs)). The API and settings of services (Google, Facebook, and Microsoft) that we use in this example often change and we can't always keep this example up to date with them. Moreover, we often can't handle these changes in our example. For example, Microsoft [requires](https://www.devexpress.com/Support/Center/Question/Details/T686058/oauth2-example-with-microsoftaccountauthenticationoptions-not-working) the '/signin-microsoft' string to the Redirect URI or Google requires to enable the Google+ API. 
 If you face difficulties with the authenticate process in this example, refer to the used OAuth2 service's documentation and make sure that all settings are correct. Feel free to create merge requests to this example if needed. 
+
+The assembly: Microsoft.Owin.Security.MicrosoftAccount support authenticating to both Microsoft user accounts, and Azure AD (School/Orgnizational) user accounts.  For this demo project to successfully authenticate an Azure AD user account, ensure to configure the Azure AD registered application as multi-tenanted = yes. (Manifest entry: "availableToOtherTenants": true).
