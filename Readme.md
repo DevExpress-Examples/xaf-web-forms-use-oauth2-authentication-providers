@@ -109,5 +109,5 @@ If you face difficulties with the authenticate process in this example, refer to
 =====================================================
 User cases:
 
-Added by [nrpieper](https://github.com/DevExpress-Examples/XAF_how-to-use-google-facebook-and-microsoft-accounts-in-aspnet-xaf-applications-oauth2-demo-t535280/commits?author=nrpieper):
+Added by [nrpieper](https://github.com/nrpieper):
 The assembly: Microsoft.Owin.Security.MicrosoftAccount support authenticating to both Microsoft user accounts, and Azure AD (School/Orgnizational) user accounts.  For this demo project to successfully authenticate an Azure AD user account, ensure to configure the Azure AD registered application as multi-tenanted = yes. (Manifest entry: "availableToOtherTenants": true).
