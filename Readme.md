@@ -9,7 +9,7 @@
 * [Global.asax.cs](./CS/AuthenticationOwin.Web/Global.asax.cs) (VB: [Global.asax.vb](./VB/AuthenticationOwin.Web/Global.asax.vb))
 * [LogonTemplateContent1.ascx](./CS/AuthenticationOwin.Web/LogonTemplateContent1.ascx) (VB: [LogonTemplateContent1.ascx](./VB/AuthenticationOwin.Web/LogonTemplateContent1.ascx))
 * [LogonTemplateContent1.ascx.cs](./CS/AuthenticationOwin.Web/LogonTemplateContent1.ascx.cs) (VB: [LogonTemplateContent1.ascx](./VB/AuthenticationOwin.Web/LogonTemplateContent1.ascx))
-* [AuthenticationStandartWithOAuth.cs](./CS/AuthenticationOwin.Web/Security/AuthenticationStandartWithOAuth.cs) (VB: [AuthenticationStandartWithOAuth.vb](./VB/AuthenticationOwin.Web/Security/AuthenticationStandartWithOAuth.vb))
+* [OAuthProvider.cs](./CS/AuthenticationOwin.Web/Security/OAuthProvider.cs) (VB: [OAuthProvider.cs](./VB/AuthenticationOwin.Web/Security/OAuthProvider.cs))
 * [Startup.cs](./CS/AuthenticationOwin.Web/Startup.cs) (VB: [Startup.vb](./VB/AuthenticationOwin.Web/Startup.vb))
 * [WebApplication.cs](./CS/AuthenticationOwin.Web/WebApplication.cs)
 <!-- default file list end -->
