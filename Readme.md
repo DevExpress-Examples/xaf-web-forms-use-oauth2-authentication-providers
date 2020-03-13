@@ -20,7 +20,7 @@ This example demonstrates the use of OAuth2 authentication in a web application.
 
 * <a href="https://console.developers.google.com/">https://console.developers.google.com/</a> (Make sure that 'Google+ API' is enabled. Read more here: <a href="https://docs.microsoft.com/en-us/aspnet/mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on">Creating a Google app for OAuth 2 and connecting the app to the project</a>)
 * <a href="https://developers.facebook.com/">https://developers.facebook.com/</a>
-* <a href="https://apps.dev.microsoft.com/">https://apps.dev.microsoft.com/</a> <br><br>Open the <em>Web.config</em> file and specify your own client IDs and client secrets for each provider.<br><br>
+* <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade">https://portal.azure.com/</a> <br><br>Open the <em>Web.config</em> file and specify your own client IDs and client secrets for each provider.<br><br>
 
 
 ```xml
