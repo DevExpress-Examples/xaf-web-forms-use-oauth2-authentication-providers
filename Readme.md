@@ -102,7 +102,7 @@ WebApplication.Instance.Settings.LogonTemplateContentPath = "LogonTemplateConten
  This example shows how XAF can work with OAuth2, in particular, how XAF can get a user's email from a service that uses this framework, and create (or authenticate) a user based on it ([the AuthenticationStandartWithOAuth.Authenticate method](./CS/AuthenticationOwin.Web/Security/AuthenticationStandartWithOAuth.cs)). The API and settings of services (Google, Facebook, and Microsoft) that we use in this example often change and we can't always keep this example up to date with them. Moreover, we often can't handle these changes in our example. 
 For example:
 - Microsoft [requires](https://www.devexpress.com/Support/Center/Question/Details/T686058/oauth2-example-with-microsoftaccountauthenticationoptions-not-working) the '/signin-microsoft' string to the Redirect URI (true at 13-mar-20);
-![chrome_2020-03-13_11-58-18](https://user-images.githubusercontent.com/14300209/76608850-70dec900-6527-11ea-9e5b-bb2218b98850.png)
+![chrome_2020-03-13_11-58-184](https://user-images.githubusercontent.com/14300209/76609777-fc0c8e80-6528-11ea-83c4-26b5c0cf1829.png)
 
 - Google requires to enable the Google+ API. 
 
