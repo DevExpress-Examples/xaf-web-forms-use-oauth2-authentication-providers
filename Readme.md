@@ -95,19 +95,14 @@ WebApplication.Instance.Settings.LogonTemplateContentPath = "LogonTemplateConten
 ```
 
 
-<br>9. Copy the<strong> LoginWith*</strong> actions customizations and the <strong>AuthenticationStandardLogonParameters_DetailView</strong> layout settings from the <em>AuthenticationOwin.Module.Web\Model.xafml</em> file to the same file in the <em>YourSolutionName.Web</em> project. If you have no model customizations in<em> Model.xafml</em>, you can just overwrite it with the file from demo. Ensure that the <a href="https://documentation.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.Web.SystemModule.IModelActionWeb.IsPostBackRequired.property">IsPostBackRequired</a> property of each <strong>LoginWith*</strong> action is set to true.<br><br><br><strong>Tip: </strong>You can refer to the <a href="https://docs.microsoft.com/en-us/aspnet/aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server">OWIN OAuth 2.0 Authorization Server</a> documentation to learn how to add more authentication providers.<br><br>For an example of integrating OAuth2 authentication in a WinForms XAF application, refer to the <a href="https://www.devexpress.com/Support/Center/p/T567978">XAF - OAuth2 Authentication for WinForms</a> ticket.<br><br>
+<br>9. Copy the<strong> LoginWith*</strong> actions customizations and the <strong>AuthenticationStandardLogonParameters_DetailView</strong> layout settings from the <em>AuthenticationOwin.Module.Web\Model.xafml</em> file to the same file in the <em>YourSolutionName.Web</em> project. If you have no model customizations in<em> Model.xafml</em>, you can just overwrite it with the file from demo. Ensure that the <a href="https://documentation.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.Web.SystemModule.IModelActionWeb.IsPostBackRequired.property">IsPostBackRequired</a> property of each <strong>LoginWith*</strong> action is set to true.<br>
+<br>10. Configure OAuth2 provider services according to their documentation.
+This example shows how XAF can get a user's email from OAuth2 services and create (or authenticate) a user based on this data ([the AuthenticationStandartWithOAuth.Authenticate method](./CS/AuthenticationOwin.Web/Security/AuthenticationStandartWithOAuth.cs)). Note that a third-party API and settings of OAuth2 services (Google, Facebook, and Microsoft) that we use in this example often change and we cannot control this at the level of our components. While we try to keep this example up-to-date with these changes, it is always better to refer to the official OAuth2 provider documentation. Please leave comments or create merge requests to this example if you find any inconsistencies. Known OAuth2 service specificities:
+- Microsoft [requires](https://www.devexpress.com/Support/Center/Question/Details/T686058/oauth2-example-with-microsoftaccountauthenticationoptions-not-working) the '/signin-microsoft' string to the Redirect URI (validated on March 13th 2020);
+![chrome_2020-03-13_11-58-18w](https://user-images.githubusercontent.com/14300209/76611233-3aa34880-652b-11ea-958b-14bdb83ff071.png)
+- "The Microsoft.Owin.Security.MicrosoftAccount assembly supports authenticating to both: Microsoft user accounts and Azure AD (School/Orgnizational) user accounts. To successfully authenticate an Azure AD user account in this demo project, ensure that you configure the Azure AD registered application as 'multi-tenanted = yes'. (The manifest entry: "availableToOtherTenants": true)" - added by [nrpieper](https://github.com/nrpieper):
+- Google requires to enable the Google+ API. 
+
+<br><br><strong>Tip: </strong>You can refer to the <a href="https://docs.microsoft.com/en-us/aspnet/aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server">OWIN OAuth 2.0 Authorization Server</a> documentation to learn how to add more authentication providers.<br><br>For an example of integrating OAuth2 authentication in a WinForms XAF application, refer to the <a href="https://www.devexpress.com/Support/Center/p/T567978">XAF - OAuth2 Authentication for WinForms</a> ticket.<br><br>
 
 <br/>
-
-
-<strong>Important note</strong><br>
-This example shows how XAF can work with OAuth2, in particular, how XAF can get a user's email from a service that uses this framework, and create (or authenticate) a user based on it ([the AuthenticationStandartWithOAuth.Authenticate method](./CS/AuthenticationOwin.Web/Security/AuthenticationStandartWithOAuth.cs)). The API and settings of services (Google, Facebook, and Microsoft) that we use in this example often change and we can't always keep this example up to date with them. Moreover, we often can't handle these changes in our example. For example, Microsoft [requires](https://www.devexpress.com/Support/Center/Question/Details/T686058/oauth2-example-with-microsoftaccountauthenticationoptions-not-working) the '/signin-microsoft' string to the Redirect URI or Google requires to enable the Google+ API. 
-If you face difficulties with the authenticate process in this example, refer to the used OAuth2 service's documentation and make sure that all settings are correct. Feel free to create merge requests to this example if needed. 
-
-
-
-=====================================================
-User cases:
-
-Added by [nrpieper](https://github.com/nrpieper):
-The assembly: Microsoft.Owin.Security.MicrosoftAccount support authenticating to both Microsoft user accounts, and Azure AD (School/Orgnizational) user accounts.  For this demo project to successfully authenticate an Azure AD user account, ensure to configure the Azure AD registered application as multi-tenanted = yes. (Manifest entry: "availableToOtherTenants": true).
