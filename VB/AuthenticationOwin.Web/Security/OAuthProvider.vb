@@ -41,7 +41,7 @@ Namespace AuthenticationOwin.Web.Security
 			If authenticateResult IsNot Nothing Then
 				Dim emailClaim As Claim = authenticateResult.Identity.FindFirst(ClaimTypes.Email)
 				If emailClaim IsNot Nothing Then
-					user = CType(objectSpace.FindObject(userType, CriteriaOperator.Parse(String.Format("OAuthAuthenticationEmails[Email = '{0}']", emailClaim.Value))), IAuthenticationOAuthUser)
+					user = CType(objectSpace.FindObject(userType, CriteriaOperator.Parse("OAuthAuthenticationEmails[Email = ?]", emailClaim.Value)), IAuthenticationOAuthUser)
 					If user Is Nothing AndAlso CreateUserAutomatically Then
 						user = CType(objectSpace.CreateObject(userType), IAuthenticationOAuthUser)
 						user.UserName = emailClaim.Value
