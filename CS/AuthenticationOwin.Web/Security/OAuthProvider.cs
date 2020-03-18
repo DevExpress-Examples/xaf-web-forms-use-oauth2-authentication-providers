@@ -24,14 +24,14 @@ namespace AuthenticationOwin.Web.Security {
             this.userType = userType;
             this.security = security;
         }
-   
+
         public object Authenticate(IObjectSpace objectSpace) {
             IAuthenticationOAuthUser user = null;
             AuthenticateResult authenticateResult = Authenticate().Result;
             if(authenticateResult != null) {
                 Claim emailClaim = authenticateResult.Identity.FindFirst(ClaimTypes.Email);
                 if(emailClaim != null) {
-                    user = (IAuthenticationOAuthUser)objectSpace.FindObject(userType, CriteriaOperator.Parse(string.Format("OAuthAuthenticationEmails[Email = '{0}']", emailClaim.Value)));
+                    user = (IAuthenticationOAuthUser)objectSpace.FindObject(userType, CriteriaOperator.Parse("OAuthAuthenticationEmails[Email = ?]", emailClaim.Value));
                     if(user == null && CreateUserAutomatically) {
                         user = (IAuthenticationOAuthUser)objectSpace.CreateObject(userType);
                         user.UserName = emailClaim.Value;
@@ -42,8 +42,7 @@ namespace AuthenticationOwin.Web.Security {
                         objectSpace.CommitChanges();
                     }
                 }
-            }
-            else {
+            } else {
                 WebApplication.Redirect(WebApplication.LogonPage);
             }
             if(user == null) {
@@ -52,7 +51,7 @@ namespace AuthenticationOwin.Web.Security {
             return user;
         }
 
-        public void Setup(params object[] args) {            
+        public void Setup(params object[] args) {
         }
         private async Task<AuthenticateResult> Authenticate() {
             return await HttpContext.Current.GetOwinContext().Authentication.AuthenticateAsync("External");
