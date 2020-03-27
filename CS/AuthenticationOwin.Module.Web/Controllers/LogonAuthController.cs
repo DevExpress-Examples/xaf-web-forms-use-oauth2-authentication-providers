@@ -19,7 +19,6 @@ namespace AuthenticationOwin.Module.Web.Controllers {
         private SimpleAction microsoftAction;
 
         private void Challenge(string provider) {
-            ((ISupportMixedAuthentication)Application.Security).AuthenticationMixed.SetupAuthenticationProvider("OAuthProvider");
             string redirectUrl = WebApplication.LogonPage + "?oauth=true";
             AuthenticationProperties properties = new AuthenticationProperties();
             properties.RedirectUri = redirectUrl;
@@ -47,6 +46,7 @@ namespace AuthenticationOwin.Module.Web.Controllers {
             ((Page)sender).Load -= CurrentRequestPage_Load;
             LogonController logonController = Frame.GetController<LogonController>();
             if(logonController != null && logonController.AcceptAction.Active) {
+                ((ISupportMixedAuthentication)Application.Security).AuthenticationMixed.SetupAuthenticationProvider("OAuthProvider");
                 logonController.AcceptAction.DoExecute();
             }
         }

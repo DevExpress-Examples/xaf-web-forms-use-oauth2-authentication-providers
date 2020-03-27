@@ -21,7 +21,6 @@ Namespace AuthenticationOwin.Module.Web.Controllers
 		Private microsoftAction As SimpleAction
 
 		Private Sub Challenge(ByVal provider As String)
-			CType(Application.Security, ISupportMixedAuthentication).AuthenticationMixed.SetupAuthenticationProvider("OAuthProvider")
 			Dim redirectUrl As String = WebApplication.LogonPage & "?oauth=true"
 			Dim properties As New AuthenticationProperties()
 			properties.RedirectUri = redirectUrl
@@ -48,10 +47,11 @@ Namespace AuthenticationOwin.Module.Web.Controllers
 		Private Sub CurrentRequestPage_Load(ByVal sender As Object, ByVal e As System.EventArgs)
 			RemoveHandler (CType(sender, Page)).Load, AddressOf CurrentRequestPage_Load
 			Dim logonController As LogonController = Frame.GetController(Of LogonController)()
-            If logonController IsNot Nothing AndAlso logonController.AcceptAction.Active = True Then
-                logonController.AcceptAction.DoExecute()
-            End If
-        End Sub
+			If logonController IsNot Nothing AndAlso logonController.AcceptAction.Active = True Then
+				CType(Application.Security, ISupportMixedAuthentication).AuthenticationMixed.SetupAuthenticationProvider("OAuthProvider")
+				logonController.AcceptAction.DoExecute()
+			End If
+		End Sub
 		Private Sub AcceptAction_Changed(ByVal sender As Object, ByVal e As ActionChangedEventArgs)
 			If e.ChangedPropertyType = ActionChangedType.Active Then
 				SetActionsActive((CType(sender, ActionBase)).Active)
