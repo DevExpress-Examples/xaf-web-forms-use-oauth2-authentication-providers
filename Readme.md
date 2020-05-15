@@ -34,7 +34,12 @@ This example demonstrates the use of OAuth2 authentication in a web application.
 ```
 
 
-<br>You can remove keys corresponding to providers that you do not want to use. <br><br><br>Now you can run the application.<br><br><strong><br>Overview of this Demo Capabilities</strong><br><br>In the logon window, there are buttons for each provider specified in <em>Web.config:<br><br><img src="https://raw.githubusercontent.com/DevExpress-Examples/how-to-use-google-facebook-and-microsoft-accounts-in-aspnet-xaf-applications-oauth2-demo-t535280/17.1.3+/media/64415faf-679a-11e7-80c0-00155d624807.png"><br></em>Standard XAF authentication with built-in username/password is also supported. When you log in via OAuth authentication, the email is used as a user name. By default, a user object is autocreated for each logon. You can disable autocreation, or specify the auto-assigned role for new users in the <strong>InitializeComponent</strong> method (see <em>WebApplication.cs(vb)</em>):<br>
+<br>You can remove keys corresponding to providers that you do not want to use. <br>
+> Note that you may need to update nuget packages to work correctly.
+
+<br>Now you can run the application.<br>
+
+<br><strong><br>Overview of this Demo Capabilities</strong><br><br>In the logon window, there are buttons for each provider specified in <em>Web.config:<br><br><img src="https://raw.githubusercontent.com/DevExpress-Examples/how-to-use-google-facebook-and-microsoft-accounts-in-aspnet-xaf-applications-oauth2-demo-t535280/17.1.3+/media/64415faf-679a-11e7-80c0-00155d624807.png"><br></em>Standard XAF authentication with built-in username/password is also supported. When you log in via OAuth authentication, the email is used as a user name. By default, a user object is autocreated for each logon. You can disable autocreation, or specify the auto-assigned role for new users in the <strong>InitializeComponent</strong> method (see <em>WebApplication.cs(vb)</em>):<br>
 
 
 ```cs
