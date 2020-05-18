@@ -43,7 +43,7 @@ Namespace AuthenticationOwin.Web
 			InitializeDefaults()
 			Dim authenticationMixed As New AuthenticationMixed()
 			authenticationMixed.LogonParametersType = GetType(AuthenticationStandardLogonParameters)
-			authenticationMixed.AuthenticationProviders.Add(GetType(AuthenticationStandardProvider).Name, New AuthenticationStandardProvider(GetType(OAuthUser)))
+			authenticationMixed.AuthenticationProviders.Add(GetType(CustomAuthenticationStandardProvider).Name, New CustomAuthenticationStandardProvider(GetType(OAuthUser)))
 			Dim authProvider As New OAuthProvider(GetType(OAuthUser), securityStrategyComplex1)
 			authProvider.CreateUserAutomatically = True
 			authenticationMixed.AuthenticationProviders.Add(GetType(OAuthProvider).Name, authProvider)
