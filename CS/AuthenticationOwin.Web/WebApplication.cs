@@ -46,7 +46,7 @@ namespace AuthenticationOwin.Web
             InitializeDefaults();
             AuthenticationMixed authenticationMixed = new AuthenticationMixed();
             authenticationMixed.LogonParametersType = typeof(AuthenticationStandardLogonParameters);
-            authenticationMixed.AuthenticationProviders.Add(typeof(AuthenticationStandardProvider).Name, new AuthenticationStandardProvider(typeof(OAuthUser)));
+            authenticationMixed.AuthenticationProviders.Add(typeof(CustomAuthenticationStandardProvider).Name, new CustomAuthenticationStandardProvider(typeof(OAuthUser)));
             OAuthProvider authProvider = new OAuthProvider(typeof(OAuthUser), securityStrategyComplex1);
             authProvider.CreateUserAutomatically = true;
             authenticationMixed.AuthenticationProviders.Add(typeof(OAuthProvider).Name, authProvider);
