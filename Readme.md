@@ -39,15 +39,13 @@ This example demonstrates the use of OAuth2 authentication in a web application.
 
 <br><strong><br>Overview of this Demo Capabilities</strong><br><br>In the logon window, there are buttons for each provider specified in <em>Web.config:<br><br><img src="https://raw.githubusercontent.com/DevExpress-Examples/how-to-use-google-facebook-and-microsoft-accounts-in-aspnet-xaf-applications-oauth2-demo-t535280/17.1.3+/media/64415faf-679a-11e7-80c0-00155d624807.png"><br></em>Standard XAF authentication with built-in username/password is also supported. When you log in via OAuth authentication, the email is used as a user name. By default, a user object is autocreated for each logon. You can disable autocreation, or specify the auto-assigned role for new users in the <strong>InitializeComponent</strong> method (see [AuthenticationOwin.Web/WebApplication.cs(vb)](./CS/AuthenticationOwin.Web/WebApplication.cs)):<br>
 
-
+C#
 ```cs
 OAuthProvider authProvider = new OAuthProvider(typeof(OAuthUser), securityStrategyComplex1);
 authProvider.CreateUserAutomatically = true;
 ```
 
-
-
-
+VB.NET
 ```vb
 Dim authProvider As New OAuthProvider(GetType(OAuthUser), securityStrategyComplex1)
 authProvider.CreateUserAutomatically = True
@@ -117,7 +115,7 @@ this.securityStrategyComplex1 = new AuthenticationOwin.Module.Web.Security.Custo
 Me.securityStrategyComplex1 = New AuthenticationOwin.Module.Web.Security.CustomSecurityStrategyComplex()
 ```
 Use CustomAuthenticationStandardProvider instead of the default one:
-
+C#
 ```cs
 public YourApplicationNameAspNetApplication() {
   InitializeComponent();
@@ -125,22 +123,21 @@ public YourApplicationNameAspNetApplication() {
   authenticationMixed.AuthenticationProviders.Add(typeof(CustomAuthenticationStandardProvider).Name, new CustomAuthenticationStandardProvider(typeof(OAuthUser)));
 
 ```
+VB.NET
 ```vb
 Public Sub New()
   authenticationMixed.AuthenticationProviders.Add(GetType(CustomAuthenticationStandardProvider).Name, New CustomAuthenticationStandardProvider(GetType(OAuthUser)))
 ```
 
 
-<br>6. Implement the <strong>IAuthenticationOAuthUser </strong>interface in your custom user class. You can see an example in the <em>AuthenticationOwin.Module\BusinessObjects\OAuthUser.cs </em>file. If you use the built-in user, you can copy the <strong>OAuthUser </strong>class to your project from the demo and set the <a href="https://documentation.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.Security.SecurityStrategy.UserType.property">SecurityStrategy.UserType</a> property to <strong>OAuthUser</strong> in the <a href="https://documentation.devexpress.com/eXpressAppFramework/112827/Design-Time-Features/Application-Designer">Application Designer</a>.<br><br>7. Change the code that creates your predefined users in <em>YourSolutionName.Module\DatabaseUpdate\Updater.cs</em>. Set <strong>EnableStandardAuthentication</strong> to <strong>true</strong> for users who can login with standard authentication (username and password). See the example in the <em>AuthenticationOwin.Module\DatabaseUpdate\Updater.cs</em> file.<strong><br><br></strong>8. Register the <em>LogonTemplateContent1.ascx</em> template in the <em>YourSolutionName.Web\Global.asax.cs</em> file:<br>
+<br>6. Implement the <strong>IAuthenticationOAuthUser </strong>interface in your custom user class. You can see an example in the <em>AuthenticationOwin.Module\BusinessObjects\OAuthUser.cs </em>file. If you use the built-in user, you can copy the <strong>OAuthUser </strong>class to your project from the demo and set the <a href="https://documentation.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.Security.SecurityStrategy.UserType.property">SecurityStrategy.UserType</a> property to <strong>OAuthUser</strong> in the <a href="https://documentation.devexpress.com/eXpressAppFramework/112827/Design-Time-Features/Application-Designer">Application Designer</a>.<br><br>7. Change the code that creates your predefined users in <em>YourSolutionName.Module\DatabaseUpdate\Updater.cs</em>. Set <strong>EnableStandardAuthentication</strong> to <strong>true</strong> for users who can login with standard authentication (username and password). See the example in the <em>AuthenticationOwin.Module\DatabaseUpdate\Updater.cs</em> file.<strong><br><br></strong>8. Register the <em>LogonTemplateContent1.ascx</em> template in the <em>YourSolutionName.Web\Global.asax.cs(vb)</em> file:<br>
 
-
+C#
 ```cs
 WebApplication.Instance.Settings.LogonTemplateContentPath = "LogonTemplateContent1.ascx"; 
 ```
 
-
-
-
+VB.NET
 ```vb
 WebApplication.Instance.Settings.LogonTemplateContentPath = "LogonTemplateContent1.ascx"
 ```
@@ -148,7 +145,7 @@ WebApplication.Instance.Settings.LogonTemplateContentPath = "LogonTemplateConten
 
 <br>9. Copy the<strong> LoginWith*</strong> actions customizations and the **AuthenticationStandardLogonParameters_DetailView** layout settings from the *[AuthenticationOwin.Web\Model.xafml](.CS\AuthenticationOwin.Web\Model.xafml)* file to the same file in the <em>YourSolutionName.Web</em> project. If you have no model customizations in<em> Model.xafml</em>, you can just overwrite it with the file from demo. Ensure that the <a href="https://documentation.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.Web.SystemModule.IModelActionWeb.IsPostBackRequired.property">IsPostBackRequired</a> property of each <strong>LoginWith*</strong> action is set to true.<br>
 <br>10. Configure OAuth2 provider services according to their documentation.
-<br>This example shows how XAF can get a user's email from OAuth2 services and create (or authenticate) a user based on this data ([the AuthenticationStandartWithOAuth.Authenticate method](./CS/AuthenticationOwin.Web/Security/AuthenticationStandartWithOAuth.cs)). 
+<br>This example shows how XAF can get a user's email from OAuth2 services and create (or authenticate) a user based on this data ([the OAuthProvider.Authenticate method](.CS\AuthenticationOwin.Web\Security\OAuthProvider.cs)). 
 <br>Note that a third-party API and settings of OAuth2 services (Google, Facebook, and Microsoft) that we use in this example often change and we cannot control this at the level of our components. While we try to keep this example up-to-date with these changes, it is always better to refer to the official OAuth2 provider documentation. Please leave comments or create merge requests to this example if you find any inconsistencies. 
 <br>Known OAuth2 services specificities:
 - Microsoft [requires](https://www.devexpress.com/Support/Center/Question/Details/T686058/oauth2-example-with-microsoftaccountauthenticationoptions-not-working) the '/signin-microsoft' string to the Redirect URI (validated on March 13th 2020);
