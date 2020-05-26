@@ -71,7 +71,7 @@ When <strong>CreateUserAutomatically</strong> is false, the logon is allowed if 
 
 
 
-2\. Open the *YourSolutionName.Module.Web/Web.config* file and specify your own client IDs and client secrets for each provider you are going to use. Refer to the [*AuthenticationOwin.Web\Web.config*](./CS/AuthenticationOwin.Module.Web/Web.config) file in the demo solution to see the example. Then, set the authentication mode to "None" and comment or remove settings related to the default XAF authentication:<br>
+2\. Open the *YourSolutionName.Module.Web/Web.config* file and specify your own client IDs and client secrets for each provider you are going to use. Refer to the [*AuthenticationOwin.Web\Web.config*](./CS/AuthenticationOwin.Web/Web.config) file in the demo solution to see the example. Then, set the authentication mode to "None" and comment or remove settings related to the default XAF authentication:<br>
   
 
 
