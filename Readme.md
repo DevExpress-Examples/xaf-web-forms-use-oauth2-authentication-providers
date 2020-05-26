@@ -105,16 +105,18 @@ Include the copied files to your solution (**Add|Existing Item...**). Update the
 
 5\. Edit the *YourSolutionName.Web\WebApplication.cs(vb)* code:  
   
-Register CustomSecurityStrategyComplex:
+Register CustomSecurityStrategyComplex:  
 
+C#
 ```cs
 this.securityStrategyComplex1 = new AuthenticationOwin.Module.Web.Security.CustomSecurityStrategyComplex();
 ```
-
+VB.NET
 ```vb
 Me.securityStrategyComplex1 = New AuthenticationOwin.Module.Web.Security.CustomSecurityStrategyComplex()
 ```
-Use CustomAuthenticationStandardProvider instead of the default one:
+Use CustomAuthenticationStandardProvider instead of the default one:  
+
 C#
 ```cs
 public YourApplicationNameAspNetApplication() {
