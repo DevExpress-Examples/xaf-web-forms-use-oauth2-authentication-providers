@@ -98,6 +98,7 @@ When <strong>CreateUserAutomatically</strong> is false, the logon is allowed if 
 *AuthenticationOwin.Web\LogonTemplateContent1.ascx.cs(vb)*  
 *AuthenticationOwin.Web\LogonTemplateContent1.ascx.designer.cs(vb)*  
 *AuthenticationOwin.Web\Login.aspx*  
+*AuthenticationOwin.Web\Login.aspx.designer.cs*  
 *AuthenticationOwin.Web\Security\CustomAuthenticationStandardProvider.cs(vb)*  
 *AuthenticationOwin.Web\Security\OAuthProvider.cs(vb)*  
 
