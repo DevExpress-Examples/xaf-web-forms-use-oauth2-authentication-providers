@@ -88,6 +88,7 @@ When <strong>CreateUserAutomatically</strong> is false, the logon is allowed if 
 
 <br>3. Copy the following files from the demo solution to the corresponding locations within your solution:  
 *AuthenticationOwin.Module\IAuthenticationOAuthUser.cs(vb)*  
+*AuthenticationOwin.Module\BusinessObjects\OAuthUser.cs(vb)*  
 *AuthenticationOwin.Module.Web\Controllers\LogonAuthController.cs(vb)*  
 *AuthenticationOwin.Module.Web\Security\CustomSecurityStrategyComplex.cs(vb)*  
 *AuthenticationOwin.Module.Web\Images\Facebook.svg*  
@@ -118,24 +119,38 @@ VB.NET
 ```vb
 Me.securityStrategyComplex1 = New AuthenticationOwin.Module.Web.Security.CustomSecurityStrategyComplex()
 ```
-Use CustomAuthenticationStandardProvider instead of the default one:  
+Use AuthenticationMixed instead of your authentication:  
 
 C#
 ```cs
 public YourApplicationNameAspNetApplication() {
   InitializeComponent();
   //...
+  AuthenticationMixed authenticationMixed = new AuthenticationMixed();
+  authenticationMixed.LogonParametersType = typeof(AuthenticationStandardLogonParameters);
   authenticationMixed.AuthenticationProviders.Add(typeof(CustomAuthenticationStandardProvider).Name, new CustomAuthenticationStandardProvider(typeof(OAuthUser)));
+  OAuthProvider authProvider = new OAuthProvider(typeof(OAuthUser), securityStrategyComplex1);
+  authProvider.CreateUserAutomatically = true;
+  authenticationMixed.AuthenticationProviders.Add(typeof(OAuthProvider).Name, authProvider);
+  securityStrategyComplex1.Authentication = authenticationMixed;
 
 ```
 VB.NET
 ```vb
 Public Sub New()
+  InitializeComponent()
+  '...
+  Dim authenticationMixed As New AuthenticationMixed()
+  authenticationMixed.LogonParametersType = GetType(AuthenticationStandardLogonParameters)
   authenticationMixed.AuthenticationProviders.Add(GetType(CustomAuthenticationStandardProvider).Name, New CustomAuthenticationStandardProvider(GetType(OAuthUser)))
+  Dim authProvider As New OAuthProvider(GetType(OAuthUser), securityStrategyComplex1)
+  authProvider.CreateUserAutomatically = True
+  authenticationMixed.AuthenticationProviders.Add(GetType(OAuthProvider).Name, authProvider)
+  securityStrategyComplex1.Authentication = authenticationMixed
 ```
 
 
-<br>6. Implement the <strong>IAuthenticationOAuthUser </strong>interface in your custom user class. You can see an example in the <em>AuthenticationOwin.Module\BusinessObjects\OAuthUser.cs </em>file. If you use the built-in user, you can copy the <strong>OAuthUser </strong>class to your project from the demo and set the <a href="https://documentation.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.Security.SecurityStrategy.UserType.property">SecurityStrategy.UserType</a> property to <strong>OAuthUser</strong> in the <a href="https://documentation.devexpress.com/eXpressAppFramework/112827/Design-Time-Features/Application-Designer">Application Designer</a>.<br><br>7. Change the code that creates your predefined users in <em>YourSolutionName.Module\DatabaseUpdate\Updater.cs</em>. Set <strong>EnableStandardAuthentication</strong> to <strong>true</strong> for users who can login with standard authentication (username and password). See the example in the <em>AuthenticationOwin.Module\DatabaseUpdate\Updater.cs</em> file.<strong><br><br></strong>8. Register the <em>LogonTemplateContent1.ascx</em> template in the <em>YourSolutionName.Web\Global.asax.cs(vb)</em> file:<br>
+<br>6. Implement the <strong>IAuthenticationOAuthUser </strong>interface in your custom user class. You can see an example in the <em>AuthenticationOwin.Module\BusinessObjects\OAuthUser.cs </em>file. If you use the built-in user, you can use the <strong>OAuthUser </strong>class and set the <a href="https://documentation.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.Security.SecurityStrategy.UserType.property">SecurityStrategy.UserType</a> property to <strong>OAuthUser</strong> in the <a href="https://documentation.devexpress.com/eXpressAppFramework/112827/Design-Time-Features/Application-Designer">Application Designer</a>.<br><br>7. Change the code that creates your predefined users in <em>YourSolutionName.Module\DatabaseUpdate\Updater.cs</em>. Set <strong>EnableStandardAuthentication</strong> to <strong>true</strong> for users who can login with standard authentication (username and password). See the example in the <em>AuthenticationOwin.Module\DatabaseUpdate\Updater.cs</em> file.<strong><br><br></strong>8. Register the <em>LogonTemplateContent1.ascx</em> template in the *Session_Start* method in the <em>YourSolutionName.Web\Global.asax.cs(vb)</em> file:<br>
 
 C#
 ```cs
