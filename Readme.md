@@ -90,11 +90,11 @@ When <strong>CreateUserAutomatically</strong> is false, the logon is allowed if 
 *AuthenticationOwin.Module\IAuthenticationOAuthUser.cs(vb)*  
 *AuthenticationOwin.Module.Web\Controllers\LogonAuthController.cs(vb)*  
 *AuthenticationOwin.Module.Web\Security\CustomSecurityStrategyComplex.cs(vb)*  
-*AuthenticationOwin.Module.Web\Images\Facebook.svg*
+*AuthenticationOwin.Module.Web\Images\Facebook.svg*  
 *AuthenticationOwin.Module.Web\Images\Google.svg*  
 *AuthenticationOwin.Module.Web\Images\Microsoft.png*  
 *AuthenticationOwin.Web\Startup.cs(vb)*  
-*AuthenticationOwin.Web\LogonTemplateContent1.ascx*
+*AuthenticationOwin.Web\LogonTemplateContent1.ascx*  
 *AuthenticationOwin.Web\LogonTemplateContent1.ascx.cs(vb)*  
 *AuthenticationOwin.Web\LogonTemplateContent1.ascx.designer.cs(vb)*  
 *AuthenticationOwin.Web\Login.aspx*  
