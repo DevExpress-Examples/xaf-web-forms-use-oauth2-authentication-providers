@@ -6,7 +6,7 @@
 * [CustomSecurityStrategyComplex.cs](./CS/AuthenticationOwin.Module.Web/Security/CustomSecurityStrategyComplex.cs) (VB: [CustomSecurityStrategyComplex.vb](./VB/AuthenticationOwin.Module.Web/Security/CustomSecurityStrategyComplex.vb))
 * [OAuthUser.cs](./CS/AuthenticationOwin.Module/BusinessObjects/OAuthUser.cs) (VB: [OAuthUser.vb](./VB/AuthenticationOwin.Module/BusinessObjects/OAuthUser.vb))
 * [IAuthenticationOAuthUser.cs](./CS/AuthenticationOwin.Module/IAuthenticationOAuthUser.cs) (VB: [IAuthenticationOAuthUser.vb](./VB/AuthenticationOwin.Module/IAuthenticationOAuthUser.vb))
-* [CustomAuthenticationStandardProvider.cs](./CS/AuthenticationOwin.Web/Security/CustomAuthenticationStandardProvider.cs) (VB: [CustomAuthenticationStandardProvider.vb](./VB/AuthenticationOwin.Web/Security/CustomAuthenticationStandardProvider.vb))
+* [CustomAuthenticationStandardProvider.cs](./CS/AuthenticationOwin.Module/Security/CustomAuthenticationStandardProvider.cs) (VB: [CustomAuthenticationStandardProvider.vb](./VB/AuthenticationOwin.Module/Security/CustomAuthenticationStandardProvider.vb))
 * [OAuthProvider.cs](./CS/AuthenticationOwin.Web/Security/OAuthProvider.cs) (VB: [OAuthProvider.vb](./VB/AuthenticationOwin.Web/Security/OAuthProvider.vb))
 * [Startup.cs](./CS/AuthenticationOwin.Web/Startup.cs) (VB: [Startup.vb](./VB/AuthenticationOwin.Web/Startup.vb))
 * [WebApplication.cs](./CS/AuthenticationOwin.Web/WebApplication.cs) (VB: [WebApplication.vb](./VB/AuthenticationOwin.Web/WebApplication.vb))
@@ -100,7 +100,7 @@ When <strong>CreateUserAutomatically</strong> is false, the logon is allowed if 
 *AuthenticationOwin.Web\LogonTemplateContent1.ascx.designer.cs(vb)*  
 *AuthenticationOwin.Web\Login.aspx*  
 *AuthenticationOwin.Web\Login.aspx.designer.cs*  
-*AuthenticationOwin.Web\Security\CustomAuthenticationStandardProvider.cs(vb)*  
+*AuthenticationOwin.Module/Security/CustomAuthenticationStandardProvider.cs(vb)*  
 *AuthenticationOwin.Web\Security\OAuthProvider.cs(vb)*  
 
 
