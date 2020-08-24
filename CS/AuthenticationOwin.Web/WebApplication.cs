@@ -7,6 +7,7 @@ using AuthenticationOwin.Module.Web.Controllers;
 using DevExpress.ExpressApp.Security;
 using DevExpress.Persistent.BaseImpl.PermissionPolicy;
 using AuthenticationOwin.Module.BusinessObjects;
+using AuthenticationOwin.Module.Security;
 
 namespace AuthenticationOwin.Web
 {

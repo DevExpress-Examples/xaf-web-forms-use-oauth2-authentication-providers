@@ -239,7 +239,6 @@
     <Compile Include="LogonTemplateContent1.ascx.designer.vb">
       <DependentUpon>LogonTemplateContent1.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Security\CustomAuthenticationStandardProvider.vb" />
     <Compile Include="Security\OAuthProvider.vb" />
     <Compile Include="Startup.vb" />
     <Compile Include="WebApplication.vb">

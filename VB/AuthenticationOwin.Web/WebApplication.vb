@@ -8,6 +8,7 @@ Imports AuthenticationOwin.Module.Web.Controllers
 Imports DevExpress.ExpressApp.Security
 Imports DevExpress.Persistent.BaseImpl.PermissionPolicy
 Imports AuthenticationOwin.Module.BusinessObjects
+Imports AuthenticationOwin.Module.Security
 
 Namespace AuthenticationOwin.Web
 	' For more typical usage scenarios, be sure to check out https://documentation.devexpress.com/eXpressAppFramework/DevExpressExpressAppWebWebApplicationMembersTopicAll.aspx

@@ -233,7 +233,6 @@
     <Compile Include="LogonTemplateContent1.ascx.designer.cs">
       <DependentUpon>LogonTemplateContent1.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Security\CustomAuthenticationStandardProvider.cs" />
     <Compile Include="Security\OAuthProvider.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="WebApplication.cs">

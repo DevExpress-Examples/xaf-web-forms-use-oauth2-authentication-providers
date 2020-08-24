@@ -118,6 +118,7 @@
       <DependentUpon>Module.vb</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="Security\CustomAuthenticationStandardProvider.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
