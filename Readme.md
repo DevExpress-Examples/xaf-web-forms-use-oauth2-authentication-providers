@@ -63,7 +63,7 @@ When <strong>CreateUserAutomatically</strong> is false, the logon is allowed if 
 *Install-Package Microsoft.Owin.Security.Facebook -Version 4.1.0*  
 *Install-Package Microsoft.Owin.Security.MicrosoftAccount -Version 4.1.0*  
 
-1.2. Switch to the *YourSolutionName.Module.Web* project and install these two packages:  
+1.2. Switch to the *YourSolutionName.Module.Web* project and install these packages:  
 *Install-Package Microsoft.AspNet.Cors -Version 5.2.7*  
 *Install-Package Microsoft.Owin -Version 4.1.0*  
 *Install-Package Microsoft.Owin.Host.SystemWeb -Version 4.1.0*  
