@@ -106,6 +106,7 @@ namespace AuthenticationOwin.Module.Web.Controllers {
             }
         }
         public LogonAuthController() {
+            TargetObjectType = typeof(AuthenticationStandardLogonParameters);
             googleAction = new SimpleAction(this, "LoginWithGoogle", "OAuthActions");
             googleAction.Caption = "Google";
             googleAction.Execute += googleAction_Execute;
