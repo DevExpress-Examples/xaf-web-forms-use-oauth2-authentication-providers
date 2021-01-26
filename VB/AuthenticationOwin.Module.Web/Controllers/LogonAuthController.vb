@@ -107,6 +107,7 @@ Namespace AuthenticationOwin.Module.Web.Controllers
 			End Get
 		End Property
 		Public Sub New()
+			Me.TargetObjectType = GetType(AuthenticationStandardLogonParameters)
 			googleAction = New SimpleAction(Me, "LoginWithGoogle", "OAuthActions")
 			googleAction.Caption = "Google"
 			AddHandler googleAction.Execute, AddressOf googleAction_Execute
