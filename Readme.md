@@ -2,6 +2,7 @@
 <!-- default file list -->
 *Files to look at*:
 
+**ASP.NET WebForms**
 * [LogonAuthController.cs](./CS/AuthenticationOwin.Module.Web/Controllers/LogonAuthController.cs) (VB: [LogonAuthController.vb](./VB/AuthenticationOwin.Module.Web/Controllers/LogonAuthController.vb))
 * [CustomSecurityStrategyComplex.cs](./CS/AuthenticationOwin.Module.Web/Security/CustomSecurityStrategyComplex.cs) (VB: [CustomSecurityStrategyComplex.vb](./VB/AuthenticationOwin.Module.Web/Security/CustomSecurityStrategyComplex.vb))
 * [OAuthUser.cs](./CS/AuthenticationOwin.Module/BusinessObjects/OAuthUser.cs) (VB: [OAuthUser.vb](./VB/AuthenticationOwin.Module/BusinessObjects/OAuthUser.vb))
@@ -10,6 +11,15 @@
 * [OAuthProvider.cs](./CS/AuthenticationOwin.Web/Security/OAuthProvider.cs) (VB: [OAuthProvider.vb](./VB/AuthenticationOwin.Web/Security/OAuthProvider.vb))
 * [Startup.cs](./CS/AuthenticationOwin.Web/Startup.cs) (VB: [Startup.vb](./VB/AuthenticationOwin.Web/Startup.vb))
 * [WebApplication.cs](./CS/AuthenticationOwin.Web/WebApplication.cs) (VB: [WebApplication.vb](./VB/AuthenticationOwin.Web/WebApplication.vb))
+
+**Blazor Server**
+
+[Use Active Directory and OAuth2 Authentication Providers in Blazor Applications](https://docs.devexpress.com/eXpressAppFramework/402197/task-based-help/security/how-to-use-active-directory-and-oauth2-authentication-providers-in-blazor-applications)
+
+**WinForms**
+
+[OAuth2 Authentication for WinForms Applications](https://www.devexpress.com/Support/Center/p/T567978)
+
 <!-- default file list end -->
 # How to: Use Google, Facebook and Microsoft accounts in ASP.NET XAF applications (OAuth2 demo)
 
@@ -166,13 +176,9 @@ WebApplication.Instance.Settings.LogonTemplateContentPath = "LogonTemplateConten
 <br>9. Copy the<strong> LoginWith*</strong> actions customizations and the **AuthenticationStandardLogonParameters_DetailView** layout settings from the *[AuthenticationOwin.Web\Model.xafml](./CS/AuthenticationOwin.Web/Model.xafml)* file to the same file in the <em>YourSolutionName.Web</em> project. If you have no model customizations in<em> Model.xafml</em>, you can just overwrite it with the file from demo. Ensure that the <a href="https://documentation.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.Web.SystemModule.IModelActionWeb.IsPostBackRequired.property">IsPostBackRequired</a> property of each <strong>LoginWith*</strong> action is set to true.<br>
 <br>10. Configure OAuth2 provider services according to their documentation.
 <br>This example shows how XAF can get a user's email from OAuth2 services and create (or authenticate) a user based on this data ([the OAuthProvider.Authenticate method](./CS/AuthenticationOwin.Web/Security/OAuthProvider.cs)). 
-<br>Note that a third-party API and settings of OAuth2 services (Google, Facebook, and Microsoft) that we use in this example often change and we cannot control this at the level of our components. While we try to keep this example up-to-date with these changes, it is always better to refer to the official OAuth2 provider documentation. Please leave comments or create merge requests to this example if you find any inconsistencies. 
+<br>Note that a third-party API and settings of OAuth2 services (Google, Facebook, and Microsoft) that we use in this example often change and we cannot control this at the level of our components. While we try to keep this example up-to-date with these changes, it is always better to refer to the official OAuth2 provider documentation. Please leave comments or create merge requests to this example if you find any inconsistencies. Refer to the <a href="https://docs.microsoft.com/en-us/aspnet/aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server">OWIN OAuth 2.0 Authorization Server</a> documentation to learn how to add more authentication providers.
 <br>Known OAuth2 services specificities:
 - Microsoft [requires](https://www.devexpress.com/Support/Center/Question/Details/T686058/oauth2-example-with-microsoftaccountauthenticationoptions-not-working) the '/signin-microsoft' string to the Redirect URI (validated on March 13th 2020);
 ![chrome_2020-03-13_11-58-18w](https://user-images.githubusercontent.com/14300209/76611233-3aa34880-652b-11ea-958b-14bdb83ff071.png)
 - "The Microsoft.Owin.Security.MicrosoftAccount assembly supports authenticating to both: Microsoft user accounts and Azure AD (School/Orgnizational) user accounts. To successfully authenticate an Azure AD user account in this demo project, ensure that you configure the Azure AD registered application as 'multi-tenanted = yes'. (The manifest entry: "availableToOtherTenants": true)" - added by [nrpieper](https://github.com/nrpieper):
-- Google requires to enable the Google+ API. 
-
-<br><br><strong>Tip: </strong>You can refer to the <a href="https://docs.microsoft.com/en-us/aspnet/aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server">OWIN OAuth 2.0 Authorization Server</a> documentation to learn how to add more authentication providers.<br><br>For an example of integrating OAuth2 authentication in a WinForms XAF application, refer to the <a href="https://www.devexpress.com/Support/Center/p/T567978">XAF - OAuth2 Authentication for WinForms</a> ticket.<br><br>
-
-<br/>
+- Google requires to enable the Google+ API.
