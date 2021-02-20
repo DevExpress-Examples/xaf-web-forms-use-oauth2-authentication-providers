@@ -1,7 +1,3 @@
-**Disclaimer**
-
-This example is based on the Microsoft Owin API and targets advanced developers who are experts in the Microsfot OWIN. It was developed for Microsoft.Owin v4.0.1 and was not tested in more recent versions. To support recent versions of Microsoft.Owin, it may be required to contact the Microsoft team or find possible solutions on public threads such as StackOverflow and etc. Researching such an API to update the example goes beyond the scope of DevExpress support services.
-
 <!-- default file list -->
 *Files to look at*:
 
@@ -24,7 +20,7 @@ This example is based on the Microsoft Owin API and targets advanced developers 
 [OAuth2 Authentication for WinForms Applications](https://www.devexpress.com/Support/Center/p/T567978)
 
 <!-- default file list end -->
-# How to: Use Google, Facebook and Microsoft accounts in ASP.NET XAF applications (OAuth2 demo)
+# How to: Use Google, Facebook and Microsoft accounts in ASP.NET Web Forms XAF applications (OAuth2 demo)
 
 
 This example demonstrates the use of OAuth2 authentication in a web application. Users can sign in to the application via Google, Facebook or  Microsoft authentication providers.<br><br><img src="https://raw.githubusercontent.com/DevExpress-Examples/how-to-use-google-facebook-and-microsoft-accounts-in-aspnet-xaf-applications-oauth2-demo-t535280/17.1.3+/media/f34385f9-6797-11e7-80c0-00155d624807.png"><br>You can try this demo "as is" to overview its capabilities, and then try the demonstrated functionality in your own XAF applications according to the instructions below.<br><br><br><strong>How to Run this Demo</strong><br><br>Before running this demo, register developer accounts at the services you are going to use
@@ -185,3 +181,7 @@ WebApplication.Instance.Settings.LogonTemplateContentPath = "LogonTemplateConten
 ![chrome_2020-03-13_11-58-18w](https://user-images.githubusercontent.com/14300209/76611233-3aa34880-652b-11ea-958b-14bdb83ff071.png)
 - "The Microsoft.Owin.Security.MicrosoftAccount assembly supports authenticating to both: Microsoft user accounts and Azure AD (School/Orgnizational) user accounts. To successfully authenticate an Azure AD user account in this demo project, ensure that you configure the Azure AD registered application as 'multi-tenanted = yes'. (The manifest entry: "availableToOtherTenants": true)" - added by [nrpieper](https://github.com/nrpieper):
 - Google requires to enable the Google+ API.
+
+**Disclaimer**
+
+This example is based on the Microsoft Owin API and targets advanced developers who are experts in the Microsfot OWIN. It was developed for Microsoft.Owin v4.0.1 and was not tested in more recent versions. To support recent versions of Microsoft.Owin, it may be required to contact the Microsoft team or find possible solutions on public threads such as StackOverflow and etc. Researching such an API to update the example goes beyond the scope of DevExpress support services.
