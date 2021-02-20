@@ -1,3 +1,6 @@
+**Disclaimer**
+
+This example is based on the Microsoft Owin API and targets advanced developers who are experts in the Microsfot OWIN. It was developed for Microsoft.Owin v4.0.1 and was not tested in more recent versions. To support recent versions of Microsoft.Owin, it may be required to contact the Microsoft team or find possible solutions on public threads such as StackOverflow and etc. Researching such an API to update the example goes beyond the scope of DevExpress support services.
 
 <!-- default file list -->
 *Files to look at*:

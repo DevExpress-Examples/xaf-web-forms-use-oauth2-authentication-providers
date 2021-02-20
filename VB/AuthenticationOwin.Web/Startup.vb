@@ -13,6 +13,7 @@ Imports System.Threading
 Imports Microsoft.Owin.Security.MicrosoftAccount
 Imports DevExpress.ExpressApp.Web
 Imports System.Security.Claims
+Imports Microsoft.AspNet.Identity
 
 <Assembly: OwinStartup(GetType(AuthenticationOwin.Web.Startup))>
 
@@ -26,13 +27,11 @@ Namespace AuthenticationOwin.Web
         Private Shared microsoftClientSecret As String = ConfigurationManager.AppSettings("MicrosoftClientSecret")
 
         Public Sub Configuration(ByVal app As IAppBuilder)
-            app.SetDefaultSignInAsAuthenticationType("External")
-            'app.UseCors(CorsOptions.AllowAll);
             app.UseCookieAuthentication(New CookieAuthenticationOptions With {
-                                        .AuthenticationType = "External",
-                                        .AuthenticationMode = AuthenticationMode.Passive,
-                                        .CookieName = ".AspNet.External",
-                                        .ExpireTimeSpan = TimeSpan.FromMinutes(5)})
+                                        .AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie})
+
+            app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie)
+
             If (Not String.IsNullOrEmpty(googleClientID)) AndAlso (Not String.IsNullOrEmpty(googleClientID)) Then
                 app.UseGoogleAuthentication(New GoogleOAuth2AuthenticationOptions() With {.ClientId = googleClientID, .ClientSecret = googleClientSecret})
             End If

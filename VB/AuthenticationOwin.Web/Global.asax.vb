@@ -18,7 +18,8 @@ Namespace AuthenticationOwin.Web
 			InitializeComponent()
 		End Sub
 		Protected Sub Application_Start(ByVal sender As Object, ByVal e As EventArgs)
-			SecurityAdapterHelper.Enable()
+			            DevExpress.ExpressApp.FrameworkSettings.DefaultSettingsCompatibilityMode = DevExpress.ExpressApp.FrameworkSettingsCompatibilityMode.v20_1
+SecurityAdapterHelper.Enable()
 			AddHandler ASPxWebControl.CallbackError, AddressOf Application_Error
 #If EASYTEST Then
 			DevExpress.ExpressApp.Web.TestScripts.TestScriptsManager.EasyTestEnabled = True

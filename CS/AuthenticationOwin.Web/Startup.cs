@@ -12,6 +12,7 @@ using System.Threading;
 using Microsoft.Owin.Security.MicrosoftAccount;
 using DevExpress.ExpressApp.Web;
 using System.Security.Claims;
+using Microsoft.AspNet.Identity;
 
 [assembly: OwinStartup(typeof(AuthenticationOwin.Web.Startup))]
 
@@ -25,18 +26,16 @@ namespace AuthenticationOwin.Web {
         private static string microsoftClientSecret = ConfigurationManager.AppSettings["MicrosoftClientSecret"];
 
         public void Configuration(IAppBuilder app) {
-            app.SetDefaultSignInAsAuthenticationType("External");
-            //app.UseCors(CorsOptions.AllowAll);
             app.UseCookieAuthentication(new CookieAuthenticationOptions {
-                AuthenticationType = "External", // DefaultAuthenticationTypes.ExternalCookie
-                AuthenticationMode = AuthenticationMode.Passive,
-                CookieName = ".AspNet.External",
-                ExpireTimeSpan = TimeSpan.FromMinutes(5),
+                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie
             });
-            if(!string.IsNullOrEmpty(googleClientID) && !string.IsNullOrEmpty(googleClientID)) {
+
+            app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
+
+            if (!string.IsNullOrEmpty(googleClientID) && !string.IsNullOrEmpty(googleClientID)) {
                 app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions() {
                     ClientId = googleClientID,
-                    ClientSecret = googleClientSecret,
+                    ClientSecret = googleClientSecret
                 });
             }
             if(!string.IsNullOrEmpty(facebookClientID) && !string.IsNullOrEmpty(facebookClientSecret)) {
@@ -51,7 +50,7 @@ namespace AuthenticationOwin.Web {
             if((!string.IsNullOrEmpty(microsoftClientID) && !string.IsNullOrEmpty(microsoftClientSecret))) {
                 MicrosoftAccountAuthenticationOptions microsoftAccountAuthenticationOptions = new MicrosoftAccountAuthenticationOptions {
                     ClientId = microsoftClientID,
-                    ClientSecret = microsoftClientSecret,                                        
+                    ClientSecret = microsoftClientSecret,
                     Provider = new MicrosoftAccountAuthenticationProvider() {
                         OnAuthenticated = (context) => {
                             var email = context.User["userPrincipalName"];
@@ -59,9 +58,9 @@ namespace AuthenticationOwin.Web {
                                 context.Identity.AddClaim(new Claim(ClaimTypes.Email, email.ToString()));
                             }
                             return Task.FromResult(0);
-                        }                    
+                        }
                     }
-                };                
+                };
                 app.UseMicrosoftAccountAuthentication(microsoftAccountAuthenticationOptions);
             }
         }

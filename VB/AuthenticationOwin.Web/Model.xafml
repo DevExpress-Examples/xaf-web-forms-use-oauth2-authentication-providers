@@ -2,17 +2,21 @@
 <Application>
   <ActionDesign>
     <Actions>
-      <Action Id="LoginWithFacebook" PaintStyle="CaptionAndImage" CustomCSSClassName="LoginWithFacebook" IsPostBackRequired="True" ImageName="facebook" />
-      <Action Id="LoginWithGoogle" PaintStyle="CaptionAndImage" CustomCSSClassName="LoginWithGoogle" IsPostBackRequired="True" ImageName="google" />
-      <Action Id="LoginWithMicrosoft" PaintStyle="CaptionAndImage" CustomCSSClassName="LoginWithMicrosoft" IsPostBackRequired="True" ImageName="microsoft" />
+      <Action Id="LoginWithFacebook" PaintStyle="CaptionAndImage" CustomCSSClassName="LoginWithFacebook" IsPostBackRequired="True" ImageName="Facebook" />
+      <Action Id="LoginWithGoogle" PaintStyle="CaptionAndImage" CustomCSSClassName="LoginWithGoogle" IsPostBackRequired="True" ImageName="Google" />
+      <Action Id="LoginWithMicrosoft" PaintStyle="CaptionAndImage" CustomCSSClassName="LoginWithMicrosoft" IsPostBackRequired="True" ImageName="Microsoft" />
     </Actions>
   </ActionDesign>
   <BOModel>
     <Class Name="AuthenticationOwin.Module.BusinessObjects.OAuthUser" Caption="User" />
   </BOModel>
+  <SchemaModules>
+    <SchemaModule Name="SystemAspNetModule" Version="20.2.5.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="20.2.5.0" IsNewNode="True" />
+  </SchemaModules>
   <Views>
     <DetailView Id="AuthenticationStandardLogonParameters_DetailView">
-      <Items>        
+      <Items>
         <StaticText Id="LogonText" Caption="LogonText(7)" Text="Login to your account" IsNewNode="True" />
       </Items>
       <Layout>
@@ -24,7 +28,7 @@
               </LayoutGroup>
               <LayoutGroup Id="Editors" RelativeSize="96.266666666666666">
                 <LayoutItem Id="UserName" Index="0" RelativeSize="3.7396121883656508" ViewItem="UserName" />
-                <LayoutItem Id="Password" Index="1" RelativeSize="3.3240997229916895" ViewItem="Password" />                
+                <LayoutItem Id="Password" Index="1" RelativeSize="3.3240997229916895" ViewItem="Password" />
               </LayoutGroup>
             </LayoutGroup>
             <LayoutGroup Id="ImageGroup" Caption="ImageGroup(3)" RelativeSize="7.0666666666666664" Direction="Horizontal" Removed="True">

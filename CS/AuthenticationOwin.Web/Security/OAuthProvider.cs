@@ -1,4 +1,6 @@
-﻿using AuthenticationOwin.Module;
+﻿using System;
+using System.Web;
+using AuthenticationOwin.Module;
 using AuthenticationOwin.Module.BusinessObjects;
 using AuthenticationOwin.Module.Web.Security;
 using DevExpress.Data.Filtering;
@@ -6,13 +8,8 @@ using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Security;
 using DevExpress.ExpressApp.Utils;
 using DevExpress.ExpressApp.Web;
+using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
 
 namespace AuthenticationOwin.Web.Security {
     public class OAuthProvider : IAuthenticationProvider {
@@ -27,22 +24,23 @@ namespace AuthenticationOwin.Web.Security {
 
         public object Authenticate(IObjectSpace objectSpace) {
             IAuthenticationOAuthUser user = null;
-            AuthenticateResult authenticateResult = Authenticate().Result;
-            if(authenticateResult != null) {
-                Claim emailClaim = authenticateResult.Identity.FindFirst(ClaimTypes.Email);
-                if(emailClaim != null) {
-                    user = (IAuthenticationOAuthUser)objectSpace.FindObject(userType, CriteriaOperator.Parse("OAuthAuthenticationEmails[Email = ?]", emailClaim.Value));
+            ExternalLoginInfo externalLoginInfo = Authenticate();
+            if(externalLoginInfo != null) {
+                string userEmail = externalLoginInfo.Email;
+                if(userEmail != null) {
+                    user = (IAuthenticationOAuthUser)objectSpace.FindObject(userType, CriteriaOperator.Parse("OAuthAuthenticationEmails[Email = ?]", userEmail));
                     if(user == null && CreateUserAutomatically) {
                         user = (IAuthenticationOAuthUser)objectSpace.CreateObject(userType);
-                        user.UserName = emailClaim.Value;
+                        user.UserName = userEmail;
                         EmailEntity email = objectSpace.CreateObject<EmailEntity>();
-                        email.Email = emailClaim.Value;
+                        email.Email = userEmail;
                         user.OAuthAuthenticationEmails.Add(email);
                         ((CustomSecurityStrategyComplex)security).InitializeNewUser(objectSpace, user);
                         objectSpace.CommitChanges();
                     }
                 }
-            } else {
+            }
+            else {
                 WebApplication.Redirect(WebApplication.LogonPage);
             }
             if(user == null) {
@@ -50,11 +48,10 @@ namespace AuthenticationOwin.Web.Security {
             }
             return user;
         }
-
-        public void Setup(params object[] args) {
+        private ExternalLoginInfo Authenticate() {
+            return HttpContext.Current.GetOwinContext().Authentication.GetExternalLoginInfo();
         }
-        private async Task<AuthenticateResult> Authenticate() {
-            return await HttpContext.Current.GetOwinContext().Authentication.AuthenticateAsync("External");
+        public void Setup(params object[] args) {
         }
     }
 }
