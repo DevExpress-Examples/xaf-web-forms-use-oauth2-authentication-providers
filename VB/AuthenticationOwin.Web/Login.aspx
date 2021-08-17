@@ -1,12 +1,12 @@
 <%@ Page Language="vb" AutoEventWireup="true" Inherits="LoginPage" EnableViewState="false" CodeBehind="Login.aspx.vb" %>
 
-<%@ Register Assembly="DevExpress.ExpressApp.Web.v20.2, Version=20.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+<%@ Register Assembly="DevExpress.ExpressApp.Web.v20.2, Version=20.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
 	Namespace="DevExpress.ExpressApp.Web.Templates.ActionContainers" TagPrefix="cc2" %>
-<%@ Register Assembly="DevExpress.ExpressApp.Web.v20.2, Version=20.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+<%@ Register Assembly="DevExpress.ExpressApp.Web.v20.2, Version=20.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
 	Namespace="DevExpress.ExpressApp.Web.Templates.Controls" TagPrefix="tc" %>
-<%@ Register Assembly="DevExpress.ExpressApp.Web.v20.2, Version=20.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+<%@ Register Assembly="DevExpress.ExpressApp.Web.v20.2, Version=20.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
 	Namespace="DevExpress.ExpressApp.Web.Controls" TagPrefix="cc4" %>
-<%@ Register Assembly="DevExpress.ExpressApp.Web.v20.2, Version=20.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+<%@ Register Assembly="DevExpress.ExpressApp.Web.v20.2, Version=20.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
 	Namespace="DevExpress.ExpressApp.Web.Templates" TagPrefix="cc3" %>
 <!DOCTYPE html>
 <html>
