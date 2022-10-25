@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNet.Identity;
-using Microsoft.Owin;
+﻿using Microsoft.Owin;
+using Microsoft.Owin.Extensions;
+using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.MicrosoftAccount;
+using Microsoft.Owin.Security.OpenIdConnect;
 using Owin;
+using System;
 using System.Configuration;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -12,31 +14,43 @@ using System.Threading.Tasks;
 namespace MySolution.Web {
     public class Startup {
         private static string microsoftClientID = ConfigurationManager.AppSettings["MicrosoftClientID"];
-        private static string microsoftClientSecret = ConfigurationManager.AppSettings["MicrosoftClientSecret"];
+        private static string aadInstance = EnsureTrailingSlash(ConfigurationManager.AppSettings["ida:AADInstance"]);
+        private static string tenantId = ConfigurationManager.AppSettings["ida:TenantId"];
+        private static string postLogoutRedirectUri = ConfigurationManager.AppSettings["ida:PostLogoutRedirectUri"];
 
+        string authority = aadInstance + tenantId + "/v2.0";
         public void Configuration(IAppBuilder app) {
-            app.UseCookieAuthentication(new CookieAuthenticationOptions {
-                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie
-            });
+            app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
+            app.UseCookieAuthentication(new CookieAuthenticationOptions());
 
-            app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
-
-            if ((!string.IsNullOrEmpty(microsoftClientID) && !string.IsNullOrEmpty(microsoftClientSecret))) {
-                MicrosoftAccountAuthenticationOptions microsoftAccountAuthenticationOptions = new MicrosoftAccountAuthenticationOptions {
-                    ClientId = microsoftClientID,
-                    ClientSecret = microsoftClientSecret,
-                    Provider = new MicrosoftAccountAuthenticationProvider() {
-                        OnAuthenticated = (context) => {
-                            var email = context.User["userPrincipalName"];
-                            if (email != null) {
-                                context.Identity.AddClaim(new Claim(ClaimTypes.Email, email.ToString()));
-                            }
-                            return Task.FromResult(0);
-                        }
-                    }
-                };
-                app.UseMicrosoftAccountAuthentication(microsoftAccountAuthenticationOptions);
+            app.UseOpenIdConnectAuthentication(
+                 new OpenIdConnectAuthenticationOptions {
+                     ClientId = microsoftClientID,
+                     Authority = authority,
+                     PostLogoutRedirectUri = postLogoutRedirectUri,
+                     Notifications = new OpenIdConnectAuthenticationNotifications() {
+                         AuthenticationFailed = (context) => {
+                             return Task.FromResult(0);
+                         },
+                         SecurityTokenValidated = (context) => {
+                             string name = context.AuthenticationTicket.Identity.FindFirst("preferred_username").Value;
+                             context.AuthenticationTicket.Identity.AddClaim(new Claim(ClaimTypes.Name, name, string.Empty));
+                             return Task.FromResult(0);
+                         }
+                     }
+                 });
+            app.UseStageMarker(PipelineStage.Authenticate);
+        }
+        private static string EnsureTrailingSlash(string value) {
+            if(value == null) {
+                value = string.Empty;
             }
+
+            if(!value.EndsWith("/", StringComparison.Ordinal)) {
+                return value + "/";
+            }
+
+            return value;
         }
     }
 }

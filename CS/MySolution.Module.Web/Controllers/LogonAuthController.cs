@@ -7,6 +7,7 @@ using DevExpress.ExpressApp.Security;
 using DevExpress.ExpressApp.Web;
 using DevExpress.ExpressApp.Web.Utils;
 using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.OpenIdConnect;
 
 namespace MySolution.Module.Web.Controllers {
     public class LogonAuthController : ViewController<DetailView> {
@@ -30,11 +31,10 @@ namespace MySolution.Module.Web.Controllers {
             string redirectUrl = WebApplication.LogonPage + "?oauth=true";
             AuthenticationProperties properties = new AuthenticationProperties();
             properties.RedirectUri = redirectUrl;
-            properties.Dictionary["Provider"] = provider;
             HttpContext.Current.GetOwinContext().Authentication.Challenge(properties, provider);
         }
         private void microsoftAccountAction_Execute(object sender, SimpleActionExecuteEventArgs e) {
-            Challenge("Microsoft");
+            Challenge(OpenIdConnectAuthenticationDefaults.AuthenticationType);
         }
         private IList<string> GetProviderNames() {
             IList<AuthenticationDescription> descriptions = HttpContext.Current.GetOwinContext().Authentication.GetAuthenticationTypes((AuthenticationDescription d) => d.Properties != null && d.Properties.ContainsKey("Caption")) as IList<AuthenticationDescription>;
@@ -77,7 +77,7 @@ namespace MySolution.Module.Web.Controllers {
             if (providersName.Count == 0) {
                 RegisterVisibleUserExistingTextScript(false);
             }
-            microsoftAction.Active["ProviderIsSet"] = providersName.Contains("Microsoft");
+            microsoftAction.Active["ProviderIsSet"] = providersName.Contains(OpenIdConnectAuthenticationDefaults.AuthenticationType);
 
             if (IsOAuthRequest && WebWindow.CurrentRequestPage != null) {
                 WebWindow.CurrentRequestPage.Load += CurrentRequestPage_Load;

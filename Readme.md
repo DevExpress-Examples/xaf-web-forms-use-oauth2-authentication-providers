@@ -6,7 +6,7 @@
 
 # XAF ASP.NET Web Forms - Use OAuth2 Authentication Providers
 
-This example demonstrates how to extend your ASP.NET Web Forms application with OAuth authentication providers. Users can sign in to the application with their [Microsoft](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/microsoft-logins) accounts. Refer to the following article to learn how to add more authentication providers: [OWIN OAuth 2.0 Authorization Server](https://docs.microsoft.com/en-us/aspnet/aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server).
+This example demonstrates how to extend your ASP.NET Web Forms application with OAuth authentication providers. Users can sign in to the application with their [Microsoft](https://learn.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-asp-webapp) accounts. Refer to the following article to learn how to add more authentication providers: [OWIN OAuth 2.0 Authorization Server](https://docs.microsoft.com/en-us/aspnet/aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server).
 
 See the following help topic for more information: [OAuth2 Authentication Providers in ASP.NET Web Forms Applications](https://docs.devexpress.com/eXpressAppFramework/403582/data-security-and-safety/security-system/authentication/oauth2-authentication-providers-in-web-forms-applications).
 
