@@ -13,19 +13,18 @@ using System.Threading.Tasks;
 
 namespace MySolution.Web {
     public class Startup {
-        private static string microsoftClientID = ConfigurationManager.AppSettings["MicrosoftClientID"];
-        private static string aadInstance = EnsureTrailingSlash(ConfigurationManager.AppSettings["ida:AADInstance"]);
-        private static string tenantId = ConfigurationManager.AppSettings["ida:TenantId"];
-        private static string postLogoutRedirectUri = ConfigurationManager.AppSettings["ida:PostLogoutRedirectUri"];
+        private static string clientId = ConfigurationManager.AppSettings["ClientId"];
+        private static string tenantId = ConfigurationManager.AppSettings["Tenant"];
+        private static string authority = string.Format(EnsureTrailingSlash(ConfigurationManager.AppSettings["Authority"]), tenantId);
+        private static string postLogoutRedirectUri = ConfigurationManager.AppSettings["redirectUri"];
 
-        string authority = aadInstance + tenantId + "/v2.0";
         public void Configuration(IAppBuilder app) {
             app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
             app.UseCookieAuthentication(new CookieAuthenticationOptions());
 
             app.UseOpenIdConnectAuthentication(
                  new OpenIdConnectAuthenticationOptions {
-                     ClientId = microsoftClientID,
+                     ClientId = clientId,
                      Authority = authority,
                      PostLogoutRedirectUri = postLogoutRedirectUri,
                      Notifications = new OpenIdConnectAuthenticationNotifications() {

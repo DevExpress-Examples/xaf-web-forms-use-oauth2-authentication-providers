@@ -27,6 +27,8 @@ See the following help topic for more information: [OAuth2 Authentication Provid
 
 * [Security (Access Control & Authentication)](https://docs.devexpress.com/eXpressAppFramework/113366/data-security-and-safety/security-system)
 * [Authentication](https://docs.devexpress.com/eXpressAppFramework/119064/data-security-and-safety/security-system/authentication)
+* [Tutorial: Add sign-in to Microsoft to an ASP.NET web app](https://learn.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-asp-webapp)
+* [4 ways of adding your application to Azure Active Directory](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/4-ways-of-adding-your-application-to-azure-active-directory/ba-p/336369)
 
 ## More Examples
 
