@@ -15,13 +15,13 @@ See the following help topic for more information: [OAuth2 Authentication Provid
 <!-- default file list -->
 ## Files to Look at
 
-* [LogonAuthController.cs](./CS/MySolution.Module.Web/Controllers/LogonAuthController.cs) (VB: [LogonAuthController.vb](./VB/MySolution.Module.Web/Controllers/LogonAuthController.vb))
-* [CustomSecurityStrategyComplex.cs](./CS/MySolution.Module.Web/Security/CustomSecurityStrategyComplex.cs) (VB: [CustomSecurityStrategyComplex.vb](./VB/MySolution.Module.Web/Security/CustomSecurityStrategyComplex.vb))
-* [ApplicationUser.cs](./CS/MySolution.Module/BusinessObjects/ApplicationUser.cs) (VB: [ApplicationUser.vb](./VB/MySolution.Module/BusinessObjects/ApplicationUser.vb))
-* [CustomAuthenticationStandardProvider.cs](./CS/MySolution.Module/Security/CustomAuthenticationStandardProvider.cs) (VB: [CustomAuthenticationStandardProvider.vb](./VB/MySolution.Module/Security/CustomAuthenticationStandardProvider.vb))
-* [OAuthProvider.cs](./CS/MySolution.Web/Security/OAuthProvider.cs) (VB: [OAuthProvider.vb](./VB/MySolution.Web/Security/OAuthProvider.vb))
-* [Startup.cs](./CS/MySolution.Web/Startup.cs) (VB: [Startup.vb](./VB/MySolution.Web/Startup.vb))
-* [WebApplication.cs](./CS/MySolution.Web/WebApplication.cs) (VB: [WebApplication.vb](./VB/MySolution.Web/WebApplication.vb))
+* [LogonAuthController.cs](./CS/MySolution.Module.Web/Controllers/LogonAuthController.cs)
+* [CustomSecurityStrategyComplex.cs](./CS/MySolution.Module.Web/Security/CustomSecurityStrategyComplex.cs)
+* [ApplicationUser.cs](./CS/MySolution.Module/BusinessObjects/ApplicationUser.cs)
+* [CustomAuthenticationStandardProvider.cs](./CS/MySolution.Module/Security/CustomAuthenticationStandardProvider.cs)
+* [OAuthProvider.cs](./CS/MySolution.Web/Security/OAuthProvider.cs)
+* [Startup.cs](./CS/MySolution.Web/Startup.cs)
+* [WebApplication.cs](./CS/MySolution.Web/WebApplication.cs)
 
 <!-- default file list end -->
 ## Documentation
