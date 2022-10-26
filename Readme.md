@@ -12,8 +12,8 @@ See the following help topic for more information: [OAuth2 Authentication Provid
 
 ![The extended login form](./media/LogonPageWithOAuthProviders.png)
 
-<!-- default file list -->
-## Files to Look at
+
+## Files to Review
 
 * [LogonAuthController.cs](./CS/MySolution.Module.Web/Controllers/LogonAuthController.cs)
 * [CustomSecurityStrategyComplex.cs](./CS/MySolution.Module.Web/Security/CustomSecurityStrategyComplex.cs)
@@ -23,13 +23,12 @@ See the following help topic for more information: [OAuth2 Authentication Provid
 * [Startup.cs](./CS/MySolution.Web/Startup.cs)
 * [WebApplication.cs](./CS/MySolution.Web/WebApplication.cs)
 
-<!-- default file list end -->
 ## Documentation
 
 * [Security (Access Control & Authentication)](https://docs.devexpress.com/eXpressAppFramework/113366/data-security-and-safety/security-system)
 * [Authentication](https://docs.devexpress.com/eXpressAppFramework/119064/data-security-and-safety/security-system/authentication)
 
-## More GitHub Examples
+## More Examples
 
 * [Use Active Directory and OAuth2 Authentication Providers in Blazor Applications](https://docs.devexpress.com/eXpressAppFramework/402197/task-based-help/security/how-to-use-active-directory-and-oauth2-authentication-providers-in-blazor-applications)
 * [OAuth2 Authentication for WinForms Applications](https://www.devexpress.com/Support/Center/p/T567978)
