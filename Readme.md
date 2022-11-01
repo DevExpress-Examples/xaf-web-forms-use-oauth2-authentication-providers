@@ -15,13 +15,13 @@ See the following help topic for more information: [OAuth2 Authentication Provid
 
 ## Files to Review
 
-* [LogonAuthController.cs](./CS/MySolution.Module.Web/Controllers/LogonAuthController.cs)
-* [CustomSecurityStrategyComplex.cs](./CS/MySolution.Module.Web/Security/CustomSecurityStrategyComplex.cs)
-* [ApplicationUser.cs](./CS/MySolution.Module/BusinessObjects/ApplicationUser.cs)
-* [CustomAuthenticationStandardProvider.cs](./CS/MySolution.Module/Security/CustomAuthenticationStandardProvider.cs)
-* [OAuthProvider.cs](./CS/MySolution.Web/Security/OAuthProvider.cs)
-* [Startup.cs](./CS/MySolution.Web/Startup.cs)
-* [WebApplication.cs](./CS/MySolution.Web/WebApplication.cs)
+* [LogonAuthController.cs](./MySolution.Module.Web/Controllers/LogonAuthController.cs)
+* [CustomSecurityStrategyComplex.cs](./MySolution.Module.Web/Security/CustomSecurityStrategyComplex.cs)
+* [ApplicationUser.cs](./MySolution.Module/BusinessObjects/ApplicationUser.cs)
+* [CustomAuthenticationStandardProvider.cs](./MySolution.Module/Security/CustomAuthenticationStandardProvider.cs)
+* [OAuthProvider.cs](./MySolution.Web/Security/OAuthProvider.cs)
+* [Startup.cs](./MySolution.Web/Startup.cs)
+* [WebApplication.cs](./MySolution.Web/WebApplication.cs)
 
 ## Documentation
 
