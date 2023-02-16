@@ -28,9 +28,13 @@ namespace MySolution.Module.Web.Controllers {
             }
         }
         private void Challenge(string provider) {
-            string redirectUrl = WebApplication.LogonPage + "?oauth=true";
+            var uriBuilder = new UriBuilder(HttpContext.Current.Request.Url);
+            var queryString = HttpUtility.ParseQueryString(uriBuilder.Query);
+            queryString["oauth"] = "true";
+            string redirectUrl = WebApplication.LogonPage + "?" + queryString.ToString();
             AuthenticationProperties properties = new AuthenticationProperties();
             properties.RedirectUri = redirectUrl;
+            properties.Dictionary["Provider"] = provider;
             HttpContext.Current.GetOwinContext().Authentication.Challenge(properties, provider);
         }
         private void microsoftAccountAction_Execute(object sender, SimpleActionExecuteEventArgs e) {
