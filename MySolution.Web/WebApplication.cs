@@ -28,6 +28,7 @@ namespace MySolution.Web {
         public MySolutionAspNetApplication() {
             InitializeComponent();
             AuthenticationMixed authenticationMixed = new AuthenticationMixed();
+	    authenticationMixed.IsSupportChangePassword = true;
             authenticationMixed.LogonParametersType = typeof(AuthenticationStandardLogonParameters);
             authenticationMixed.AuthenticationProviders.Add(typeof(CustomAuthenticationStandardProvider).Name, new CustomAuthenticationStandardProvider(typeof(ApplicationUser)));
             OAuthProvider authProvider = new OAuthProvider(typeof(ApplicationUser), securityStrategyComplex1);
