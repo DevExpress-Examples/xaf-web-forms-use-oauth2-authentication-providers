@@ -15,6 +15,9 @@ namespace MySolution.Module.Web.Security {
             if (HttpContext.Current.Request.Cookies[".AspNet.External"] != null) {
                 HttpContext.Current.Response.Cookies[".AspNet.External"].Expires = DateTime.Now.AddDays(-1);
             }
+            if (HttpContext.Current.Request.Cookies[".AspNet.Cookies"] != null) {
+                HttpContext.Current.Response.Cookies[".AspNet.Cookies"].Expires = DateTime.Now.AddDays(-1);
+            }
             base.Logoff();
         }
     }
