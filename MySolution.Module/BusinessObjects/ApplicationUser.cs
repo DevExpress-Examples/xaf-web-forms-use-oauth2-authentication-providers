@@ -9,6 +9,7 @@ using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
 
 namespace MySolution.Module.BusinessObjects {
+    #pragma warning disable XAF0023
     [MapInheritance(MapInheritanceType.ParentTable)]
     [DefaultProperty(nameof(UserName))]
     public class ApplicationUser : PermissionPolicyUser, IObjectSpaceLink, ISecurityUserWithLoginInfo {
