@@ -97,7 +97,6 @@
       <Name>System.Data</Name>
     </Reference>
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
