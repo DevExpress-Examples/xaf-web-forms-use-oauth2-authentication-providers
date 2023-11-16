@@ -23,6 +23,8 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Bb]in/
+MigrationBackup/
+MigrationBackup2/
 
 # Visual Studio 2015 cache/options directory
 .vs/
