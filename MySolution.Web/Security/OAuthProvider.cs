@@ -6,7 +6,7 @@ using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Security;
 using DevExpress.ExpressApp.Utils;
 using DevExpress.ExpressApp.Web;
-using Microsoft.Identity.Web;
+
 using Microsoft.Owin.Security;
 using MySolution.Module.BusinessObjects;
 using MySolution.Module.Web.Security;
