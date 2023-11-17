@@ -50,7 +50,7 @@ namespace MySolution.Web.Security {
             if(externalLoginInfo != null) {
                 return externalLoginInfo.Email;
             }
-            var email = authentication.User.Claims.Where(c => c.Type == ClaimConstants.PreferredUserName).Select(c => c.Value).FirstOrDefault();
+            var email = authentication.User.Claims.Where(c => c.Type == Microsoft.Identity.Web.ClaimConstants.PreferredUserName).Select(c => c.Value).FirstOrDefault();
             return email;
         }
         public void Setup(params object[] args) {
