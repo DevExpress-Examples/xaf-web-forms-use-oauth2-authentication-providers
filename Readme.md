@@ -33,4 +33,4 @@ See the following help topic for more information: [OAuth2 Authentication Provid
 ## More Examples
 
 * [Use Active Directory and OAuth2 Authentication Providers in Blazor Applications](https://docs.devexpress.com/eXpressAppFramework/402197/task-based-help/security/how-to-use-active-directory-and-oauth2-authentication-providers-in-blazor-applications)
-* [OAuth2 Authentication for WinForms Applications](https://www.devexpress.com/Support/Center/p/T567978)
+* [Active Directory and OAuth2 Authentication Providers in WinForms Applications](https://docs.devexpress.com/eXpressAppFramework/404752/data-security-and-safety/security-system/authentication/oauth-and-custom-authentication/active-directory-and-oauth2-authentication-providers-in-winforms-applications)
