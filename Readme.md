@@ -1,7 +1,3 @@
-<!-- default badges list -->
-![](https://img.shields.io/endpoint?url=https://codecentral.devexpress.com/api/v1/VersionRange/128594415/24.1.1%2B)
-[![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
-<!-- default badges end -->
 
 ⛔ DEPRECATED. This example was deprecated and will not be updated in the future. Use the ASP.NET Core standard authentication available out-of-the-box in Blazor applications.
 
